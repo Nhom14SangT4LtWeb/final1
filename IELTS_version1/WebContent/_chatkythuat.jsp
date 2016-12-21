@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-<button class="btn btn-info fixChat">ĐỘI HỖ TRỢ KỸ THUẬT</button>
+<button class="btn btn-info fixChat" >ĐỘI HỖ TRỢ KỸ THUẬT</button>
 <div id="showhidechatbox" class="panel panel-info fixPa">
 	<div class="panel-heading">
 		<strong>ĐỘI HỖ TRỢ KỸ THUẬT CHÀO BẠN</strong>

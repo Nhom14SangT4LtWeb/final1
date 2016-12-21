@@ -33,7 +33,6 @@
 <script src="js/jquery-ui-datepicker.min.js"></script>
 <link rel="stylesheet" href="css/ChatBox.css" media="screen">
 
-<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 </head>
 <body>
 	<div id="main">
@@ -42,88 +41,372 @@
 		<!-- PHAN HEADER -->
 		<jsp:include page="_menu.jsp"></jsp:include>
 		<!--  -->
-		<div id="left"></div>
-		<div id="content">
-			<div>
-				<div class="text-left"
-					style='margin-top: 5px; margin-left: 5px; margin-bottom: 5px'>
-					<small>Folder</small>
-				</div>
-				<div class="row"></div>
-			</div>
-			<hr>
-			<div class="text-left"
-				style='margin-top: 5px; margin-left: 5px; margin-bottom: 5px'>
-				<small>File</small>
-			</div>
-			<div class="row">
-				<iframe src="File.jsp"
-					style='margin-left: 15px; margin-bottom: 2%; width: 48%; height: 600px; border: 1px solid #CDCDCD;'></iframe>
-				<iframe src=""
-					style='width: 45%; margin-bottom: 2%; height: 600px; border: 1px solid #CDCDCD;'></iframe>
-			</div>
+		<div id="left">
+		<jsp:include page="_menuleft.jsp"></jsp:include>	
 		</div>
-		<!-- PHAN CANLENDAR, THOI KHOA BIEU, NHAC NHO -->
-		<div id="right" class="navbar-inverse">
-			<div class="navbar navbar-inverse">
-				<div class="container-fluid">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a>
-						</li>
-						<li><label for="TaoTKB"></label> <a href="userTimetable"><span
-								class="glyphicon glyphicon-plus" id="TaoTKB"
-								title="Tao thoi khoa bieu"></span></a></li>
-					</ul>
-					<div id="calendar" class="panel-collapse collapse"></div>
-				</div>
+		<!-- PHAN MAIN -->	
+		<div class="row" style ='border: 1px solid #CDCDCD;width: 843px;min-height: 900px;   float:left;margin-left: 5px;margin-bottom: 5px;'>
+			<!-- Navbar chính -->
+			<div class="navbar navbar-default">
+  				<div class="container-fluid">
+    				<div class="navbar-header">
+        				<button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th"></span></button>
+        				<button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th-list"></span></button>
+    				</div>
+    				<form class="navbar-form navbar-right" role="search">
+  						<div class="input-group">
+      						<input type="text" class="form-control" placeholder="Search for...">
+      						<span class="input-group-btn">
+        						<button class="btn btn-default " type="button">.<span class="glyphicon glyphicon-search"></span></button>
+      						</span>
+    					</div>
+					</form>
+					<form class="navbar-form navbar-right" role="input">
+						<div class="input-group">
+					      <input type="text" class="form-control" aria-label="..." style='width:300px'>
+					      <div class="input-group-btn">
+					        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">.<span class="caret">.</span></button>
+					        <ul class="dropdown-menu dropdown-menu-right" style='width: 337px'>
+					          <li><a href="#">Document</a></li>
+					          <li role="separator" class="divider"></li>
+					          <li><a href="#">Listening</a></li>
+					          <li role="separator" class="divider"></li>
+					          <li><a href="#">Reading</a></li>
+					          <li role="separator" class="divider"></li>
+					          <li><a href="#">Test</a></li>
+					          <li role="separator" class="divider"></li>
+					          <li><a href="#">Create test</a></li>
+					        </ul>
+					      </div><!-- /btn-group -->
+				    	</div><!-- /input-group -->
+				    </form>
+					<button type="button" class="btn btn-default navbar-btn" style='float:right'>.<span class="glyphicon glyphicon-repeat"></span></button>
+					<button type="button" class="btn btn-default navbar-btn" style='float:right'>.<span class="glyphicon glyphicon-arrow-left"></span></button>
+  				</div>
 			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="widget-title ">
-						<strong>Thời khóa biểu của bạn hôm nay</strong>
-					</h3>
-				</div>
-				<div class="panel-body">
-					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Success!</strong> 8:30 SA || Learning "Listening 1".
-					</div>
-					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Warning!</strong> 15:30 SA || Learning "Speaking 2".
-					</div>
-					<div class="alert alert-info">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Info!</strong> 20:00 SA || Practice Learning "Listening
-						1".
-					</div>
-				</div>
+			<!-- Navbar phụ -->
+			<div class="navbar navbar-default" style='margin-bottom: 0px;'>
+  				<div class="container-fluid">
+        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-share"></span>.Share</button>
+        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-download-alt"></span>.Download</button>
+        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-tasks"></span>.View Document</button>
+        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-copy"></span>.Copy</button>
+        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-scissors"></span>.Cut</button>
+        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-trash"></span>.Detelet</button>
+	    				<form class="navbar-form navbar-right" role="sort">
+							<div class="input-group">
+			    				<div class="input-group-btn">	
+							        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by<span class="caret"></span></button>
+							        <ul class="dropdown-menu">
+							          <li><a href="#">Name</a></li>
+							          <li role="separator" class="divider"></li>
+							          <li><a href="#">Type</a></li>
+							        </ul>
+							  	</div>
+							</div>
+							<div class="input-group">
+								.<span class="input-group-addon" style='float:right'>
+									<input type="checkbox" aria-label="..." >
+								</span>
+						    </div>
+					     </form>
+    			</div>
 			</div>
-			<div class="sidebar-item">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="widget-title">
-							<strong>Những công việc đang dở dang</strong>
-						</h3>
-					</div>
-					<div class="panel-body">
-						<div class="alert alert-warning ">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Warning!</strong> 23/09/2016 || "Listening 1" chưa hoàn
-							thành!.
-						</div>
-						<div class="alert alert-warning">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Warning!</strong> 24/09/2016 || "Speaking 2" chưa hoàn
-							thành!.
-						</div>
-					</div>
-				</div>
-			</div>
+			<!--  -->
+			<form method="post" action="registration.jsp">
+		<div class="table-responsive">
+			<table class="table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<td>STT</td>
+						<td>Ten Tài Liệu</td>
+						<td>Tạo bởi</td>
+						<td>Ngày tạo</td>
+						<td >Thao tác</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td> 
+							<a class="glyphicon glyphicon-save"></a>
+							<a class="glyphicon glyphicon-cloud-download"></a>
+							<span class="input-group" style='float:right; margin-right: 17px'>
+								<input type="checkbox" aria-label="..." style=''>
+							</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
 		</div>
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
-		</div>
+	</div>
 		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
 		<jsp:include page="_chatkythuat.jsp"></jsp:include>
 		<!-- TRUYEN CALENDAR -->

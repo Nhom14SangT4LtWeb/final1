@@ -12,7 +12,9 @@
 		<!-- PHAN HEADER -->
 		<jsp:include page="_menu.jsp"></jsp:include>
 		<!--  -->
-		<div id="left"></div>
+		<div id="left">
+			<jsp:include page="_menuleft.jsp"></jsp:include>
+		</div>
 		<div id="content"></div>
 		<!-- PHAN CANLENDAR, THOI KHOA BIEU, NHAC NHO -->
 		<div id="right" class="navbar-inverse">

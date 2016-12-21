@@ -2,6 +2,7 @@
 body{
     font-family: Arial, Tahoma;
     font-size: 12px;
+    background:;
 }
  
 #main{
@@ -53,7 +54,7 @@ body{
      min-height: 900px;
      border: 1px solid #CDCDCD;
      float:left;
-     background-color: #004C00;
+     background-color:;
      margin-bottom: 5px;
 }
 #content{
@@ -75,7 +76,7 @@ body{
 #footer{
      clear: both;
      border: 1px solid #CDCDCD;
-     background-color: #F8F8FF;
+     background-color: ;
 }
 .fullPage{
 	 position: relative;
