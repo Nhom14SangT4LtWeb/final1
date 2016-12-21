@@ -183,7 +183,8 @@ public class DBUtils {
 		  pstm.setString(8, user.getPublicDate());
 		  pstm.executeUpdate();
 	}
-	 public static void updatePublicDateUser(Connection conn, TaiKhoaNguoiDung user) throws SQLException{
+	 
+	  public static void updatePublicDateUser(Connection conn, TaiKhoaNguoiDung user) throws SQLException{
 		 String sql = "Update users set public_time = ? where username = ?";
 		 PreparedStatement pstm = conn.prepareStatement(sql);
 		 pstm.setString(1, user.getPublicDate());

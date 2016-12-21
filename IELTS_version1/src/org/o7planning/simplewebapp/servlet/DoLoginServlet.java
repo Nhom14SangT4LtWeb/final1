@@ -38,7 +38,6 @@ public class DoLoginServlet extends HttpServlet {
       boolean hasError = false;
       String errorString = null;
       int flag = 1;
- 
       if (userName == null || password == null
                || userName.length() == 0 || password.length() == 0) {
           hasError = true;
