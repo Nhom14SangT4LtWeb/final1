@@ -94,7 +94,35 @@ public class DBUtils {
 		  if(rs.next()){
 			  String username = rs.getString("username");
 			  TaiKhoaNguoiDung user =new TaiKhoaNguoiDung();
-			  user.setActive(username);
+			  user.setUserName(username);
+			  return user;
+		  }
+		  return null;
+	  }
+	  public static TaiKhoaNguoiDung checkUniqueEmail(Connection conn, String emailRegis)throws SQLException{
+		  String sql ="Select a.email from users a"
+		  		+ " where a.email = ?";
+		  PreparedStatement pstm = conn.prepareStatement(sql);
+		  pstm.setString(1,emailRegis);
+		  ResultSet rs = pstm.executeQuery();
+		  if(rs.next()){
+			  String Email = rs.getString("email");
+			  TaiKhoaNguoiDung user = new TaiKhoaNguoiDung();
+			  user.setEmail(Email);
+			  return user;
+		  }
+		  return null;
+	  }
+	  public static TaiKhoaNguoiDung checkUniqueUserName(Connection conn, String userNameRegis)throws SQLException{
+		  String sql ="Select a.username from users a"
+		  		+ " where a.username = ?";
+		  PreparedStatement pstm = conn.prepareStatement(sql);
+		  pstm.setString(1,userNameRegis);
+		  ResultSet rs = pstm.executeQuery();
+		  if(rs.next()){
+			  String username = rs.getString("username");
+			  TaiKhoaNguoiDung user =new TaiKhoaNguoiDung();
+			  user.setUserName(username);
 			  return user;
 		  }
 		  return null;

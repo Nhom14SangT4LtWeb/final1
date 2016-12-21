@@ -75,7 +75,7 @@ public class DoLoginServlet extends HttpServlet {
           // Ghi các thông tin vào request trước khi forward.
           request.setAttribute("errorString", errorString);
           request.setAttribute("user", user);
-       // Chuyển tiếp tới trang /WEB-INF/views/login.jsp
+          // Chuyển tiếp tới trang /WEB-INF/views/login.jsp
           RequestDispatcher dispatcher //
           = this.getServletContext().getRequestDispatcher("/Login.jsp");
  

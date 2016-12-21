@@ -28,7 +28,7 @@
 									name</label>
 								<div class="col-sm-9 ">
 									<input type="text" name="fullNameRegis"
-										value="${user.fullNameRegis}" class="form-control"
+										value="${user.fullName}" class="form-control"
 										id="inputName3" placeholder="Name">
 									<p class="text-right" style="color: red;">${errorfullNameRegis}</p>
 								</div>
@@ -37,7 +37,7 @@
 								<label for="inputUsername3" class="col-sm-3 control-label">Username</label>
 								<div class="col-sm-9">
 									<input type="text" name="userNameRegis"
-										value="${user.userNameRegis}" class="form-control"
+										value="${user.userName}" class="form-control"
 										id="inputUsername3" placeholder="Username">
 									<p class="text-right" style="color: red;">${erroruserNameRegis}</p>
 								</div>
@@ -46,7 +46,7 @@
 								<label for="inputPassword3" class="col-sm-3 control-label">Password</label>
 								<div class="col-sm-9">
 									<input type="password" name="passwordRegis"
-										value="${user.passwordRegis}" class="form-control"
+										value="${user.password}" class="form-control"
 										id="inputPassword3" placeholder="Password">
 									<p class="text-right" style="color: red;">${errorpasswordRegis}</p>
 								</div>
@@ -56,7 +56,7 @@
 									class="col-sm-3 control-label">Re-enter Password</label>
 								<div class="col-sm-9">
 									<input type="password" name="re_enterRegis"
-										value="${user.re_enterRegis }" class="form-control"
+										value="" class="form-control"
 										id="inputReenterPassword3" placeholder="Re-enter Password">
 									<p class="text-right" style="color: red;">${errorre_enterRegis}</p>
 								</div>
@@ -65,7 +65,7 @@
 								<label for="inputEmail3" class="col-sm-3 control-label">Email</label>
 								<div class="col-sm-9">
 									<input type="email" name="emailRegis"
-										value="${user.emailRegis }" class="form-control"
+										value="${user.email }" class="form-control"
 										id="inputEmail3" placeholder="Email">
 									<p class="text-right" style="color: red;">${erroremailRegis}</p>
 									<br>
