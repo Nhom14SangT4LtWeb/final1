@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import UserAccount.PublicFile;
+
 import UserAccount.TaiKhoaNguoiDung;
 public class DBUtils {
 	public static List<TaiKhoaNguoiDung> queryProduct(Connection conn) throws SQLException {
@@ -129,7 +129,7 @@ public class DBUtils {
 	  }
 	  public static TaiKhoaNguoiDung findUser(Connection conn, String userName) throws SQLException {
 		  
-		  String sql = "Select a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date, a.avatar, a.active, a.public_time from users a "
+		  String sql = "Select a.user_id, a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date, a.avatar, a.active, a.public_time from users a "
 		              + " where a.username = ?";
 	 
 	      PreparedStatement pstm = conn.prepareStatement(sql);
@@ -138,6 +138,7 @@ public class DBUtils {
 	      ResultSet rs = pstm.executeQuery();
 	 
 	      if (rs.next()) {
+	    	  String user_id = rs.getString("user_id");
 	          String password = rs.getString("pass");
 	          String fullName = rs.getString("fullname");
 	          String email = rs.getString("email");
@@ -150,6 +151,7 @@ public class DBUtils {
 	          String active = rs.getString("active");
 	          String publicDate = rs.getString("public_time");
 	          TaiKhoaNguoiDung user = new TaiKhoaNguoiDung();
+	          user.setIdUser(user_id);
 	          user.setUserName(userName);
 	          user.setPassword(password);
 	          user.setPassword(password);
@@ -187,15 +189,5 @@ public class DBUtils {
 		 pstm.setString(1, user.getPublicDate());
 		 pstm.setString(2, user.getUserName());
 		 pstm.executeUpdate();
-	 }
-	  public static void deleteProduct(Connection conn, String code) throws SQLException {
-	      String sql = "Delete Product where Code= ?";
-	 
-	      PreparedStatement pstm = conn.prepareStatement(sql);
-	 
-	      pstm.setString(1, code);
-	 
-	      pstm.executeUpdate();
-	  }
-	 
-	}
+	 }	 
+}

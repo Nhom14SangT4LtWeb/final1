@@ -49,7 +49,7 @@
 			<br>
 			<br>
 			<div class="col-md-4 col-sm-4 col-xs-12 text-center">
-				<img id="avatar" src="imgs/exo1.jpg" class="img-responsive"
+				<img id="avatar" src="${avatar_guid}" class="img-responsive"
 					alt="exo1" width="304" height="236"> <br>
 				<button type="button" class="changeavatar">
 					<span class="glyphicon glyphicon-pencil" style="color: red"></span>
@@ -240,23 +240,25 @@
 		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
 	<!-- PHAN HOP THOAI CHANGE AVATAR -->
-	<div id="showmodalchangeavatar" class="opacityFull"></div>
-	<div id="opacityFullPage" class="modalChangeAvatar">
+	<div id="opacityFullPage" class="opacityFull"></div>
+	<div id="showmodalchangeavatar" class="modalUpload">
+	<form name="avatar" action="${pageContext.request.contextPath}/doAvatar" method="POST" enctype="multipart/form-data">
 		<div class="panel panel-info">
-			<div class="panel-heading">
-				<strong>Update Avatar</strong>
+				<div class="panel-heading">
+					<strong>Change Avatar</strong>
+				</div>
+				<div class="btn panel-info  btn-block">
+					<strong><input type="file" size="60" id="file" name="file"></strong>
+					<hr>
+					<input type="submit" class="btn btn-md btn-ok"  value="OK">
+					<input type="button" class="btn btn-md btn-cancel cancelAvatar" value="Cancel"/>
+				</div>
 			</div>
-			<div class="btn panel-info  btn-block btn-file">
-				<strong><input type="file" class=""></strong>
-				<hr>
-				<a href="ChangeAvatar.jsp"><input type="button"
-					class="btn btn-md btn-ok " value="OK"></a> <input type="button"
-					class="btn btn-md btn-cancel cancelAvatar" value="Cancel">
-			</div>
-		</div>
+	</form>
 	</div>
 	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
 	<jsp:include page="_chatkythuat.jsp"></jsp:include>
+	<!-- hien thi hop thoai doi avatar -->
 	<script>
     $(document).ready(function(){
         $(".changeavatar").click(function(){

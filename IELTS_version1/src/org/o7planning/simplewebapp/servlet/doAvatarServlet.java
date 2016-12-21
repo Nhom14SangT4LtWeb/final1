@@ -1,0 +1,107 @@
+package org.o7planning.simplewebapp.servlet;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
+
+import UserAccount.*;
+import org.o7planning.simplewebapp.utils.*;
+
+@WebServlet("/doAvatar")
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 4, // 2MB
+				maxFileSize = 1024 * 1024 * 20, // 10MB
+				maxRequestSize = 1024 * 1024 * 90) // 50MB
+public class doAvatarServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	public static String SAVE_DIRECTORY = "AVATAR";
+    public doAvatarServlet() {
+        super();
+    }
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 HttpSession session = request.getSession();
+	      // Kiểm tra người dùng login chưa
+	      TaiKhoaNguoiDung loginedUser = MyUtils.getLoginedUser(session);
+	 
+	      // Chưa login.
+	      if (loginedUser == null) {
+	          // Chuyển hướng về trang login.
+	          response.sendRedirect(request.getContextPath() + "/login");
+	          return;
+	      }
+	      // Ghi thông tin vào request trước khi forward.
+	      request.setAttribute("user", loginedUser);
+	 
+	      // ---------------------------PHAN THUC HIEN CHINH-----------------------------
+	      String appPath = request.getServletContext().getRealPath("");
+          appPath = appPath.replace('\\', '/');
+          String fullSavePath = null;
+          // Thư mục để save file tải lên.
+          if (appPath.endsWith("/")) {
+              fullSavePath = appPath + SAVE_DIRECTORY;
+          } else {
+              fullSavePath = appPath + "/" + SAVE_DIRECTORY;
+          }
+          // Tạo thư mục nếu nó không tồn tại.
+          File fileSaveDir = new File(fullSavePath);
+          if (!fileSaveDir.exists()) {
+              fileSaveDir.mkdir();
+          }
+          String filePath= "";
+          String fileName="";
+          try{
+          for (Part part : request.getParts()) {
+              fileName = extractFileName(part);
+              if (fileName != null && fileName.length() > 0) {
+                  filePath = fullSavePath + File.separator + fileName;	  
+                  // Ghi vào file.
+                  part.write(filePath);
+              }
+          }}catch (Exception e) {
+	           e.printStackTrace();
+	 	       System.out.println("File upload failed" + e );
+	       }
+          request.setAttribute("avatar_guid",SAVE_DIRECTORY+ File.separator + fileName );
+          System.out.println("File upload failed" +filePath );
+          RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/MyProfile.jsp");
+	       dispatcher.forward(request, response);
+	}
+	private String extractFileName(Part part) {
+	       // form-data; name="file"; filename="C:\file1.zip"
+	       // form-data; name="file"; filename="C:\Note\file2.zip"
+	       String contentDisp = part.getHeader("content-disposition");
+	       String[] items = contentDisp.split(";");
+	       for (String s : items) {
+	           if (s.trim().startsWith("filename")) {
+	               // C:\file1.zip
+	               // C:\Note\file2.zip
+	               String clientFileName = s.substring(s.indexOf("=") + 2, s.length() - 1);
+	               clientFileName = clientFileName.replace("\\", "/");
+	               int i = clientFileName.lastIndexOf('/');
+	               // file1.zip
+	               // file2.zip
+	               return clientFileName.substring(i + 1);
+	           }
+	       }
+	       return null;
+	   }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+}

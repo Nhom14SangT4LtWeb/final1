@@ -1,9 +1,7 @@
 package UserAccount;
 
 public class TaiKhoaNguoiDung {
-	 public static final String GENDER_MALE ="M";
-	   public static final String GENDER_FEMALE = "F";
-	    
+       private String idUser;
 	   private String userName;
 	   private String password;
 	   private String fullName;
@@ -33,6 +31,12 @@ public class TaiKhoaNguoiDung {
 	   public TaiKhoaNguoiDung (String username, String publicTime){
 		   this.userName = username;
 		   this.publicDate = publicTime;
+	   }
+	   public String getIdUser(){
+		   return idUser;
+	   }
+	   public void setIdUser(String idUser){
+		   this.idUser = idUser;
 	   }
 	   public String getUserName() {
 	       return userName;

@@ -37,7 +37,6 @@ public class MyUtils {
 		   TaiKhoaNguoiDung loginedUser = (TaiKhoaNguoiDung) session.getAttribute("loginedUser");
 	       return loginedUser;
 	   }
-	 
 	   // Lưu thông tin người dùng vào Cookie.
 	   public static void storeUserCookie(HttpServletResponse response, TaiKhoaNguoiDung user) {
 	       System.out.println("Store user cookie");
