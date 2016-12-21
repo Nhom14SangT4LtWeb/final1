@@ -17,6 +17,7 @@ encoding//src/org/o7planning/simplewebapp/servlet/UserPublic.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/UserTimetableServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/WebHomeServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/WebUserServlet.java=UTF-8
+encoding//src/org/o7planning/simplewebapp/servlet/createTest.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/doAvatarServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/doCreateTest.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/doDeleteFileServlet.java=UTF-8

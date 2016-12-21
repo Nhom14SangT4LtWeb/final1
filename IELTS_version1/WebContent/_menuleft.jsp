@@ -10,6 +10,6 @@
 		<li role="presentation"><a href="doDanhMuc?danhmuc=${'Document'}">Document</a></li>
 		<li role="presentation"><a href="doDanhMuc?danhmuc=${'Listening'}">Listening</a></li>
 		<li role="presentation"><a href="doDanhMuc?danhmuc=${'Reading'}">Reading</a></li>
-		<li role="presentation"><a href="doCreateTest">Create Test</a></li>
+		<li role="presentation"><a href="createTest">Create Test</a></li>
 		<li role="presentation"><a href="doTest">Test</a></li>
 	</ul>

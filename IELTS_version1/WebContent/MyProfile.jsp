@@ -186,7 +186,7 @@
 						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a></li>
 						<li>
 							<label for="TaoTKB"></label>
-							<a href="userTimetable"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
+							<a href="Lich.jsp"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
 						</li>
 					</ul>
 					<div id="calendar" class="panel-collapse collapse"></div>

@@ -15,16 +15,16 @@ import org.o7planning.simplewebapp.utils.MyUtils;
 import UserAccount.TaiKhoaNguoiDung;
 
 /**
- * Servlet implementation class doViewDoc
+ * Servlet implementation class createTest
  */
-@WebServlet("/doViewDoc")
-public class doViewDoc extends HttpServlet {
+@WebServlet("/createTest")
+public class createTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public doViewDoc() {
+    public createTest() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,11 +32,13 @@ public class doViewDoc extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	          throws ServletException, IOException {
+	      HttpSession session = request.getSession();
+	 
 	      // Kiểm tra người dùng login chưa
 	      TaiKhoaNguoiDung loginedUser = MyUtils.getLoginedUser(session);
+	 
 	      // Chưa login.
 	      if (loginedUser == null) {
 	          // Chuyển hướng về trang login.
@@ -45,19 +47,17 @@ public class doViewDoc extends HttpServlet {
 	      }
 	      // Ghi thông tin vào request trước khi forward.
 	      request.setAttribute("user", loginedUser);
-	      String doc_guid=(String)request.getParameter("doc_guid");
-	      request.setAttribute("path", doc_guid);
-	      RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/ViewFile.jsp");
+	 
+	      // Đã login rồi thì chuyển tiếp 
+	      RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/CreateTest.jsp");
 	      dispatcher.forward(request, response);
-
+	 
+	  }
+	 
+	  @Override
+	  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	          throws ServletException, IOException {
+	      doGet(request, response);
+	  }
+	 
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-}

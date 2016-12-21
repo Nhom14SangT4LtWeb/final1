@@ -97,7 +97,7 @@
     			</div>
 			</div>
 			<!--  -->
-			<form method="post" action="registration.jsp">
+			<form method="post" action="">
 			<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%">
 				<thead>

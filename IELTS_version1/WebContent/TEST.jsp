@@ -37,7 +37,7 @@
 <script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body>
-<div id="main">
+	<div id="main">
 		<!-- PHAN LOGO AND COVER IMAGES -->
 		<jsp:include page="_header.jsp"></jsp:include>
 		<!-- PHAN HEADER -->
@@ -51,74 +51,54 @@
 			<!-- Navbar chính -->
 			<div class="navbar navbar-default">
   				<div class="container-fluid">
-				    <form class="navbar-form" role="search" style='margin-top:2%'>
-  						<div class="input-group">
-      						<span class="input-group-btn">
-        						<button class="btn btn-default " type="button">Tạo đề <span class="glyphicon glyphicon-plus"></span></button>
-      							<button class="btn btn-default " type="button">Xem <span class="glyphicon glyphicon-next"></span></button>
-      						</span>
-    					</div>
-					</form>
+				    <form id="frmdanhmuc" name="frmdanhmuc" action="doDanhMuc?selected" method="POST" class="navbar-form navbar-left" style='width:60%'>
+					    <button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th-list"></span></button>
+					    <select id ="danhmuc" name="danhmuc" onchange="document.frmdanhmuc.submit();" class="btn btn-default navbar-btn" style='width:40%;'>
+				          <option value="Document" selected>TEST</option>
+				         </select>
+			        </form>
   				</div>
 			</div>
-			<form method="post" action="${pageContext.request.contextPath}/doCreateTest" enctype="multipart/form-data">
-				<div class="row">
-				<div class="form-group">
-				    <label for="tende" class="col-sm-1 control-label">Tên đề:</label>
-				    <div class="col-sm-5">
-				      <input type="text" class="form-control" id="tende" placeholder="Đề số mấy">
-				    </div>
-				</div>
-				</div>
-				<br>
-				<div class="panel panel-info">
-					<div class="panel-heading">PHẦN ĐỀ</div>
-					<div class="panel-body">
-						Select file to upload:
-				        <br />
-				        <div class="form-group">
-			    			<label for="inputTailieu3" class="col-sm-3 control-label">Tài liệu:</label>
-			    			<div class="col-sm-9">
-				        		<input type="file" name="file"  />
-				        		<br />
-				        	</div>
-				        </div>
-				        <div class="form-group">
-			    			<label for="inputTailieu3" class="col-sm-3 control-label">mp3 kèm:</label>
-			    			<div class="col-sm-9">
-				        		<input type="file" name="file"  />
-				        		<br />
-				        	</div>
-				        </div>
-					</div>
-				</div>
-				<div class="panel panel-info">
-					<div class="panel-heading">PHẦn ĐÁP ÁN</div>
-					<div class="panel-body">
-					        Select file to upload:
-					        <br />
-					        <input type="file" name="file"  />
-					        <br />
-					        <input type="file" name="file" />
-					</div>
-				</div>
-			<div class="panel panel-info">
-				<div class="panel-heading">PHẦN SCRIPT</div>
-				<div class="panel-body">
-				        Select file to upload:
-				        <br />
-				        <input type="file" name="file"  />
-				        <br />
-				        <input type="file" name="file" />
-				</div>
-			</div>
-				<br />
-				<br />
-				<input type="submit" value="Upload" style='float:right; margin:8%'>
-			</form>
-		</div>		
+			<form method="post" action="">
+			<div class="table-responsive">
+			<table class="table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<td class="text-center">Tên đề</td>
+						<td class="text-center" >Ten Tài Liệu</td>
+						<td style='width:15%'>Ngày tạo</td>
+						<td class="text-center" style='width:10%'>Thao tác</td>
+				</thead>
+				<tbody>
+					<c:forEach items="${docList}" var="docs" >
+					<tr>
+						<td>${tende}</td>
+						<td><p name="doc_name" id="doc_name">${docs.doc_name}</p></td>
+						<td>${docs.upload_date}</td>
+						<td class="text-center">
+							<a name="doc_guid"href="" class="glyphicon glyphicon-tasks"></a>
+							<a href="" class="glyphicon glyphicon-cloud-download"></a>
+							<a name="doc_guid"href="" class="glyphicon glyphicon-trash"></a>
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</form>
+		</div>
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
-</div>
+	</div>
+	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
+		<jsp:include page="_chatkythuat.jsp"></jsp:include>
+		<script>
+	  		$( function() {
+	    	$( document ).tooltip();
+	  		} );
+  		</script>
+<script>
+$('#danhmuc').val("{tende}");
+</script>
 </body>
 </html>
