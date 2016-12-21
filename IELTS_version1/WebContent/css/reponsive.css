@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+/*Ipad ngang(1024 x 768)*/
+@media screen and (max-width: 1024px){
+    #main{ width: 100%;}
+}
+/**/
+@media screen and (max-width:991px){
+	#baner{ width: 100%; float: none;}
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (max-width: 768px){
+	#baner{ width: 100%; float: none;}
+    #content{ width: 100%; float: none;}
+    #right { width: 100%;float: none; padding-left: 0px;}
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (max-width: 480px){
+    #baner{ width: 100%; float: none;}
+}
+/*Iphone(480 x 640)*/
+@media screen and (max-width: 320px){
+    #baner{ width: 100%; float: none;}
+}
+/*Smart phone nhỏ*/
+@media screen and (max-width: 240px){
+    #baner{ width: 100%; float: none;}
+}

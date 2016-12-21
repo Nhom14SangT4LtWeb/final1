@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+body{
+    font-family: Arial, Tahoma;
+    font-size: 12px;
+}
+ 
+#main{
+    width: 1000px;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+#head{
+    height: auto;
+    background-color:;
+    border: 1px solid #CDCDCD;
+    /*!margin-bottom:5px;-->*/
+}
+#logo{
+	width: 180px;
+    height: 111px;
+    border: 1px solid #CDCDCD;
+    float:left;
+    background-color: #3e3e3e;
+    background-image: url(../imgs/logo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+#baner{
+    width: 817px;
+    height: 110px;
+    float:left;
+    background-color: #3e3e3e;
+    background-image: url(../imgs/ielts-banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    
+}
+#head-link{
+     height: auto;
+     line-height:;
+     padding-left:;
+     padding-right:;
+     border:;
+     background-color:;
+     margin-bottom:5px;
+     clear: both;
+}
+#left{
+     width: 150px;
+     min-height: 900px;
+     border: 1px solid #CDCDCD;
+     float:left;
+     background-color: #004C00;
+     margin-bottom: 5px;
+}
+#content{
+     width: 600px;
+     min-height: 900px;
+     border: 1px solid #CDCDCD;
+     float:left;
+     margin-left: 5px;
+     margin-right: 5px;
+     margin-bottom: 5px;
+}
+#right{
+     width: 234px;
+     min-height: 900px;
+     border: 1px solid #CDCDCD;
+     float:right;
+     margin-bottom: 5px;
+}
+#footer{
+     clear: both;
+     border: 1px solid #CDCDCD;
+     background-color: #F8F8FF;
+}
+.fullPage{
+	 position: relative;
+}
+	
