@@ -12,7 +12,6 @@ public class MyUtils {
 	   public static final String ATT_NAME_CONNECTION = "ATTRIBUTE_FOR_CONNECTION";
 	   
 	   private static final String ATT_NAME_USER_NAME = "ATTRIBUTE_FOR_STORE_USER_NAME_IN_COOKIE";
-	 
 	   // Lưu trữ Connection vào một thuộc tính của request.
 	   // Thông tin lưu trữ chỉ tồn tại trong thời gian yêu cầu (request)
 	   // cho tới khi dữ liệu được trả về trình duyệt người dùng.
@@ -37,7 +36,6 @@ public class MyUtils {
 		   TaiKhoaNguoiDung loginedUser = (TaiKhoaNguoiDung) session.getAttribute("loginedUser");
 	       return loginedUser;
 	   }
-	 
 	   // Lưu thông tin người dùng vào Cookie.
 	   public static void storeUserCookie(HttpServletResponse response, TaiKhoaNguoiDung user) {
 	       System.out.println("Store user cookie");

@@ -3,7 +3,10 @@ package org.o7planning.simplewebapp.servlet;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
- 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +17,14 @@ import javax.servlet.http.HttpServletResponse;
 import UserAccount.TaiKhoaNguoiDung;
 import org.o7planning.simplewebapp.utils.DBUtils;
 import org.o7planning.simplewebapp.utils.MyUtils;
- 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 @WebServlet(urlPatterns = { "/doRegister" })
 public class DoRegisterServlet extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -27,13 +37,17 @@ public class DoRegisterServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
 	  String userRole = "user";
-	  String ativationDate = null;
+	  
+	  Date dateCurrent = new Date();
+	  SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	  String ativationDate = dateFormat.format(dateCurrent);
 	  String active ="1";
-	  String fullNameRegis = (String) request.getParameter("fullNameRegis");
-      String userNameRegis = (String) request.getParameter("userNameRegis");
-      String passwordRegis = (String) request.getParameter("passwordRegis");
-      String re_enterRegis = (String) request.getParameter("re_enterRegis");
-      String emailRegis = (String)request.getParameter("emailRegis");
+	  String publicTime = dateFormat.format(dateCurrent);
+	  String fullNameRegis = request.getParameter("fullNameRegis");
+      String userNameRegis = request.getParameter("userNameRegis");
+      String passwordRegis = request.getParameter("passwordRegis");
+      String re_enterRegis = request.getParameter("re_enterRegis");
+      String emailRegis = request.getParameter("emailRegis");
       String rememberMeStrRegis = request.getParameter("rememberRegis");
       boolean remember = "Y".equals(rememberMeStrRegis);
       
@@ -44,6 +58,9 @@ public class DoRegisterServlet extends HttpServlet {
       String erroremailRegis =null;
       String errorpasswordRegis =null;
       String errorre_enterRegis = null;
+      
+      Connection conn = MyUtils.getStoredConnection(request);
+      
       if (fullNameRegis == null || fullNameRegis.length() == 0  ){
     	  hasserror = true;
     	  errorfullNameRegis = "Required fullname!";
@@ -52,20 +69,7 @@ public class DoRegisterServlet extends HttpServlet {
     	  hasserror = true;
     	  erroruserNameRegis  = "Required username!";
       }
-      if (passwordRegis == null || passwordRegis.length() == 0  ){
-    	  hasserror = true;
-    	  errorpasswordRegis  = "Required password!";
-      }
-      if (re_enterRegis == null || re_enterRegis.length()==0){
-    	  hasserror = true;
-    	  errorre_enterRegis = "Required re-enter password!";
-      }
-      if (emailRegis == null || emailRegis.length() == 0){
-    	  hasserror = true;
-    	  erroremailRegis  = "Required email!";
-      }    
-      Connection conn = MyUtils.getStoredConnection(request);
-      try {
+      else try {
 	      user = DBUtils.checkUniqueUserName(conn, userNameRegis);
 	      if (user != null ){
 	    	  hasserror =true;
@@ -75,7 +79,25 @@ public class DoRegisterServlet extends HttpServlet {
     	  e.printStackTrace();
     	  erroruserNameRegis = e.getMessage();
       }
-      try {
+      if (passwordRegis == null || passwordRegis.length() == 0  ){
+    	  hasserror = true;
+    	  errorpasswordRegis  = "Required password!";
+      }
+      if (re_enterRegis == null || re_enterRegis.length()==0){
+    	  hasserror = true;
+    	  errorre_enterRegis = "Required re-enter password!";
+      }
+      else {
+    	  if (!re_enterRegis.equals(passwordRegis )){
+    		  hasserror = true;
+    	  errorre_enterRegis = "Password does not match the confirm password!";
+    	  }
+      }
+      if (emailRegis == null || emailRegis.length() == 0){
+    	  hasserror = true;
+    	  erroremailRegis  = "Required email!";
+      } 
+      else  try {
     	  user = DBUtils.checkUniqueEmail(conn, emailRegis);
 	      if (user != null){
 	    	  hasserror = true;
@@ -85,6 +107,7 @@ public class DoRegisterServlet extends HttpServlet {
     	  e.printStackTrace();
     	  erroremailRegis = e.getMessage();
       }
+      
       if (hasserror){
     	  user = new TaiKhoaNguoiDung();
           user.setUserName(userNameRegis);
@@ -104,7 +127,7 @@ public class DoRegisterServlet extends HttpServlet {
           dispatcher.forward(request, response);
       }
       else{
-    	  user = new TaiKhoaNguoiDung(fullNameRegis,userNameRegis,emailRegis,passwordRegis,userRole,ativationDate,active);
+    	  user = new TaiKhoaNguoiDung(fullNameRegis,userNameRegis,emailRegis,passwordRegis,userRole,ativationDate,active,publicTime);
 	      try {
 	    	  DBUtils.insertUser(conn, user);
 	      } catch (SQLException e) {
@@ -116,7 +139,8 @@ public class DoRegisterServlet extends HttpServlet {
           // Ngược lại xóa Cookie
           else  {
               MyUtils.deleteUserCookie(response);
-          }            
+          }
+          
           // Rồi chuyển hướng sang trang /userInfo.
           response.sendRedirect(request.getContextPath() + "/login");
       }

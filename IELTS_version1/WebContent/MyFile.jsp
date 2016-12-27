@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -26,14 +27,14 @@
 <link href="css/ResetFormatPage.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/selector.css">
 <link href="css/reponsive.css" rel="stylesheet" type="text/css" />
-
 <!-- Thu vien calendar -->
+<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 <link rel="stylesheet" href="css/Calendar_style.css" media="screen">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui-datepicker.min.js"></script>
-<link rel="stylesheet" href="css/ChatBox.css" media="screen">
-
-<link rel="stylesheet" href="css/ChatBox.css" media="screen">
+<!--  -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+<script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -42,104 +43,179 @@
 		<!-- PHAN HEADER -->
 		<jsp:include page="_menu.jsp"></jsp:include>
 		<!--  -->
-		<div id="left"></div>
-		<div id="content">
-			<div>
-				<div class="text-left"
-					style='margin-top: 5px; margin-left: 5px; margin-bottom: 5px'>
-					<small>Folder</small>
-				</div>
-				<div class="row"></div>
-			</div>
-			<hr>
-			<div class="text-left"
-				style='margin-top: 5px; margin-left: 5px; margin-bottom: 5px'>
-				<small>File</small>
-			</div>
-			<div class="row">
-				<iframe src="File.jsp"
-					style='margin-left: 15px; margin-bottom: 2%; width: 48%; height: 600px; border: 1px solid #CDCDCD;'></iframe>
-				<iframe src=""
-					style='width: 45%; margin-bottom: 2%; height: 600px; border: 1px solid #CDCDCD;'></iframe>
-			</div>
+		<div id="left">
+		<jsp:include page="_menuleft.jsp"></jsp:include>	
 		</div>
-		<!-- PHAN CANLENDAR, THOI KHOA BIEU, NHAC NHO -->
-		<div id="right" class="navbar-inverse">
-			<div class="navbar navbar-inverse">
-				<div class="container-fluid">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a>
-						</li>
-						<li><label for="TaoTKB"></label> <a href="userTimetable"><span
-								class="glyphicon glyphicon-plus" id="TaoTKB"
-								title="Tao thoi khoa bieu"></span></a></li>
-					</ul>
-					<div id="calendar" class="panel-collapse collapse"></div>
-				</div>
+		<!-- PHAN MAIN -->	
+		<div class="row" style ='border: 1px solid #CDCDCD;width: 843px;min-height: 900px;   float:left;margin-left: 5px;margin-bottom: 5px;'>
+			<!-- Navbar chính -->
+			<div class="navbar navbar-default">
+  				<div class="container-fluid">
+				    <form id="frmdanhmuc" name="frmdanhmuc" action="doDanhMuc?selected" method="POST" class="navbar-form navbar-left" style='width:60%'>
+					    <button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th-list"></span></button>
+					    <select id ="danhmuc" name="danhmuc" onchange="document.frmdanhmuc.submit();" class="btn btn-default navbar-btn" style='width:40%;'>
+				          <option value="Document" selected>Document</option>
+				          <option value="Listening">Listening</option>
+				          <option value="Reading">Reading</option>
+				         </select>
+			        </form>
+				    <form class="navbar-form navbar-right" role="search" style='margin-top:2%'>
+  						<div class="input-group">
+      						<input type="text" class="form-control" placeholder="Search for...">
+      						<span class="input-group-btn">
+        						<button class="btn btn-default " type="button">.<span class="glyphicon glyphicon-search"></span></button>
+      						</span>
+    					</div>
+					</form>
+  				</div>
 			</div>
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="widget-title ">
-						<strong>Thời khóa biểu của bạn hôm nay</strong>
-					</h3>
-				</div>
-				<div class="panel-body">
-					<div class="alert alert-success">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Success!</strong> 8:30 SA || Learning "Listening 1".
+			
+			<!-- Navbar phụ -->
+			<div class="navbar navbar-default">
+ 				<div class="container-fluid">		
+       				<form class="navbar-form navbar-left" role="typeupload">
+       				<div class="input-group">	
+       					<div class="input-group-btn">	
+					        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Upload<span class="glyphicon glyphicon-upload"></span></button>
+					        <ul class="dropdown-menu">
+					          <li><a href="#" class="btnuploadFile">File</a></li>
+					          <li role="separator" class="divider"></li>
+					          <li><a onclick="DoBrowseFolder();return false">Folder</a></li>
+					        </ul>
+					  	</div>
 					</div>
-					<div class="alert alert-warning">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Warning!</strong> 15:30 SA || Learning "Speaking 2".
-					</div>
-					<div class="alert alert-info">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Info!</strong> 20:00 SA || Practice Learning "Listening
-						1".
-					</div>
-				</div>
+					</form>
+					<form name="sortby" action="doDanhMuc?danhmuc=${danhmuchienhanh}" method="POST" class="navbar-form navbar-right" role="search" style='margin:0'>
+						<select id ="sort"  name="sort" onchange="document.sortby.submit();" class="btn btn-default navbar-btn">
+				          <option selected="selected" value="">-Sort by-</option>
+				          <option value="" >File</option>
+				          <option value="" >Folder</option>
+				        </select>
+			        </form>
+       				<button id ="viewdoc"name="viewdoc" type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-tasks"></span> View Document</button>
+       				<button data-target="#myModal" data-toggle="modal"type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-share"></span> Share</button>
+    			</div>
 			</div>
-			<div class="sidebar-item">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 class="widget-title">
-							<strong>Những công việc đang dở dang</strong>
-						</h3>
-					</div>
-					<div class="panel-body">
-						<div class="alert alert-warning ">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Warning!</strong> 23/09/2016 || "Listening 1" chưa hoàn
-							thành!.
-						</div>
-						<div class="alert alert-warning">
-							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<strong>Warning!</strong> 24/09/2016 || "Speaking 2" chưa hoàn
-							thành!.
-						</div>
-					</div>
-				</div>
-			</div>
+			<!--  -->
+			<form method="post" action="">
+			<div class="table-responsive">
+			<table class="table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<td class="text-center" style='width:5%'>Loại</td>
+						<td class="text-center" >Ten Tài Liệu</td>
+						<td style='width:15%'>Ngày tạo</td>
+						<td class="text-center" style='width:10%'>Thao tác</td>
+				</thead>
+				<tbody>
+					<c:forEach items="${docList}" var="docs" >
+					<tr>
+						<td class="text-center"><a class="glyphicon glyphicon-file"></a></td>
+						<td ><p name="doc_name" id="doc_name">${docs.doc_name}</p></td>
+						<td>${docs.upload_date}</td>
+						<td class="text-center">
+							<a name="doc_guid"href="doViewDoc?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-tasks"></a>
+							<a href="#myModal" role="button" data-toggle="modal" class="glyphicon glyphicon-share"></a>
+							<a href="doDownloadFile?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-cloud-download"></a>
+							<a href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</form>
 		</div>
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
-		</div>
+	</div>
+	<!-- HOP THOAI UPLOAD FILE -->
+	<div id="uploadFile" class="modalUpload">
+		<form id="uploadForm" action="${pageContext.request.contextPath}/doUploadFile" method="post" enctype="multipart/form-data">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<strong>Update File</strong>
+				</div>
+				<div class="btn panel-info  btn-block">
+					<strong><input type="file" size="60" id="file" name="file"></strong>
+					<hr>
+					<input name="danhmuchienhanh" value="${danhmuchienhanh}"/>
+					<input type="submit" class="btn btn-md btn-ok"  value="OK">
+					<input type="button" class="btn btn-md btn-cancel" value="Cancel"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	  <!-- Modal -->
+ <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Share File</h4>
+            </div>
+            <div class="modal-body">
+				<form class="form-horizontal" role="form">
+				  <div class="form-group">
+				    <label for="inputNguoinhan3" class="col-sm-3 control-label">Người nhận</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="inputNguoinhan3" placeholder="">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputTailieu3" class="col-sm-3 control-label">Tài liệu:</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" name="tailieu3" value="${doc_name}"id="tailieu3" placeholder="">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputloinhan3" class="col-sm-3 control-label">Lời nhắn</label>
+				    <div class="col-sm-9">
+				      <textarea class="form-control" id="inputloinhan3" placeholder=""></textarea>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-5">
+				      <div class="checkbox">
+				        <label class="col-sm-9">
+				          <input type="checkbox"> Share cho publicFile
+				        </label>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  <button type="button" style="float:right; margin-right:3%" class="btn btn-primary">Send</button>
+				    <button type="button" style="float:right; margin-right:3%"class="btn btn-default" data-dismiss="modal">Close</button>
+                	
+				  </div>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
 		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
 		<jsp:include page="_chatkythuat.jsp"></jsp:include>
 		<!-- TRUYEN CALENDAR -->
+		<!-- hien thi hop thoai upload -->
 		<script>
-    	$('#calendar').datepicker({
-      	  	inline: true,
-        	firstDay: 1,
-        	showOtherMonths: true,
-        	dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    	});
-	</script>
-		<!--  -->
+		    $(document).ready(function(){
+		        $(".btnuploadFile").click(function(){
+		            $("#uploadFile").show();
+		        })
+		    });
+		    $(document).ready(function(){
+		        $(".btn-cancel").click(function(){
+		            $("#uploadFile").hide();
+		        })
+		    });
+		</script>
 		<script>
-  		$( function() {
-    	$( document ).tooltip();
-  		} );
-  	</script>
+	  		$( function() {
+	    	$( document ).tooltip();
+	  		} );
+  		</script>
+<script>
+$('#danhmuc').val("${danhmuchienhanh}");
+</script>
 </body>
 </html>

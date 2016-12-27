@@ -275,7 +275,7 @@
 	</div>
 	<!-- PHAN HOP THOAI CHANGE AVATAR -->
 	<div id="showmodalchangeavatar" class="opacityFull"></div>
-	<div id="opacityFullPage" class="modalChangeAvatar">
+	<div id="opacityFullPage" class="modalUpload">
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<strong>Update Avatar</strong>

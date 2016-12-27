@@ -55,8 +55,8 @@
 							class="caret"></span>
 					</a>
 						<ul class=" navbar-inverse dropdown-menu">
-							<li><a href="#paper51" style='color: white'>User</a></li>
-							<li><a href="#paper52" style='color: white'>Admin</a></li>
+							<li><a href="ListUser.jsp" style='color: white'>User</a></li>
+							<li><a href="Listadmin.jsp" style='color: white'>Admin</a></li>
 						</ul></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="MyFile.jsp"> Kho tài liệu <span

@@ -3,8 +3,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Website ho tro luyen thi IELTS</title>
-<jsp:include page="_lib.jsp"></jsp:include>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+<script src="js/npm.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<link
+	href="ajax.aspnetcdn.com/ajax/bootstrap/3.3.5/css/bootstrap.min.css"
+	rel="stylesheet" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<link href="css/ResetFormatPage.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/selector.css">
+<link href="css/reponsive.css" rel="stylesheet" type="text/css" />
+
+<!-- Thu vien calendar -->
+<link rel="stylesheet" href="css/Calendar_style.css" media="screen">
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui-datepicker.min.js"></script>
+<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 </head>
 <body>
 	<div id="main">
@@ -13,121 +40,271 @@
 		<!-- PHAN HEADER -->
 		<jsp:include page="_menuweb.jsp"></jsp:include>
 		<!-- PHAN CONTAIN -->
-		<div class="row">
-			<iframe src="File.jsp"
-				style='margin-left: 2%; width: 48%; height: 900px; border: 1px solid #CDCDCD;'></iframe>
-			<iframe src=""
-				style='width: 48%; height: 900px; border: 1px solid #CDCDCD;'></iframe>
+		<div class="row" style ='border: 1px solid #CDCDCD; min-height: 900px;margin-left: 5px;margin-right: 5px;margin-bottom: 5px;'>
+			<div class="navbar navbar-default">
+	  				<div class="container-fluid">
+	    				<form class="navbar-form navbar-right" role="search">
+	  						<div class="input-group">
+	      						<input type="text" class="form-control" aria-label="..." style='width:300px'>
+						      	<div class="input-group-btn">
+						        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+							        <ul class="dropdown-menu" style='width:40%'>
+							          <li><a href="#">Tất cả mail</a></li>
+							          <li role="separator" class="divider"></li>
+							          <li><a href="#">Mail tin tức</a></li>
+							          <li role="separator" class="divider"></li>
+							          <li><a href="#">Mail tài liệu</a></li>
+							        </ul>
+							    </div><!-- /btn-group -->
+	      						<button class="btn btn-default " type="button">.<span class="glyphicon glyphicon-search"></span></button>
+	    					</div>
+						</form>
+	  				</div>
+				</div>
+				<form method="post" action="registration.jsp">
+		<div class="table-responsive">
+			<table class="table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<td>STT</td>
+						<td>Ten Tài Liệu</td>
+						<td>Tên Thành Viên Shared</td>
+						<td>Ngày share</td>
+						<td>Thao tác</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td><a href="">Listening 1</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><a href="">Listening 2</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><a href="">Listening 3</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><a href="">Listening 4</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><a href="">Listening 5</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td><a href="">Listening 6</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td><a href="">Listening 7</a></td>
+						<td>kemotsach</td>
+						<td>15-08-2016</td>
+						<td><a class="glyphicon glyphicon-save"></a> <a
+							class="glyphicon glyphicon-cloud-download"></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
 		</div>
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
-	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-	<p>
-		<button class="btn btn-info fixChat">ĐỘI HỖ TRỢ KỸ THUẬT</button>
-	</p>
-	<div id="abc">
-		<div class="panel panel-info fixPa">
-			<div class="panel-heading">
-				<strong>ĐỘI HỖ TRỢ KỸ THUẬT CHÀO BẠN</strong>
-			</div>
-			<div class="panel-body">
-				<div class="row">
-					<span class="badge pull-left">
-						<h5>Chào bạn!</h5>
-					</span> <br> <br> <span class="badge">
-						<h5>Bạn đang gặp phải vấn đề gì?</h5>
-					</span>
-					<div class="input-group fixInp">
-						<input type="text" class="form-control"> <span
-							class="input-group-btn">
-							<button class="btn btn-default" type="button">Send!</button>
-							<button type="button" class="btn btn-default ">
-								<span class="glyphicon glyphicon-paperclip"></span>
-							</button>
-						</span>
-					</div>
-					<!-- /input-group -->
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" role="dialog">
-			<div class="modal-dialog modal-sm">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header" style="padding: 35px 50px;">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4>
-							<span class="glyphicon glyphicon-lock"></span> Login
-						</h4>
-					</div>
-					<div class="modal-body" style="padding: 40px 50px;">
-						<form method="POST" action="doLogin">
-							<div class="form-group">
-								<label>User Name</label> <input type="text" name="userName"
-									value="${user.userName}" />
-							</div>
-							<div class="form-group">
-								<label>Password</label> <input type="text" name="password"
-									value="${user.password}" />
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" name="rememberMe"
-									value="Y" />Remember me</label>
-							</div>
-							<input type="submit" value="Submit"
-								class="btn btn-primary btn-block" /><span
-								class="glyphicon glyphicon-off"></span> <a
-								href="${pageContext.request.contextPath}/">Cancel</a>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<div class="row">
-							<div class="col-md-5">
-								<p>
-									Not a member? <a href="#"><br>Sign Up</a>
-								</p>
-							</div>
-							<div class="col-md-offset-4">
-								<p>
-									Forgot <a href="#"><br>Password?</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<!-- SHOW HIDE CHAT BOX HO TRO KY THUAT -->
-	<script>
-    $(document).ready(function(){
-        $(".btn-info").click(function(){
-            $("#abc").toggle();
-        })
-    })
-  </script>
-	<script>
-    $(document).ready(function(){
-        $(".fixChat").click(function(){
-            $("#showhidechatbox").toggle();
-        })
-        $(document).ready(function(){
-        	$("#btnsig").click(function(){
-            $("#myModal").modal();
-        	});
-    		});
-        $(document).ready(function(){
-        	$("#btnreg ").click(function(){
-            $("#modlRegis").modal();
-        	});
-    		});
-    })
-  	</script>
 </body>
 </html>

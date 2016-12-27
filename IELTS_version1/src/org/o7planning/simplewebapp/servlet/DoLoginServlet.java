@@ -38,7 +38,6 @@ public class DoLoginServlet extends HttpServlet {
       boolean hasError = false;
       String errorString = null;
       int flag = 1;
- 
       if (userName == null || password == null
                || userName.length() == 0 || password.length() == 0) {
           hasError = true;
@@ -66,7 +65,7 @@ public class DoLoginServlet extends HttpServlet {
               errorString = e.getMessage();
           }
       }
-      // Trong trường hợp có lỗi, forward về trang /WEB-INF/views/login.jsp
+      // Trong trường hợp có lỗi, forward về trang login.jsp
       if (hasError) {
           user = new TaiKhoaNguoiDung();
           user.setUserName(userName);
@@ -75,7 +74,7 @@ public class DoLoginServlet extends HttpServlet {
           // Ghi các thông tin vào request trước khi forward.
           request.setAttribute("errorString", errorString);
           request.setAttribute("user", user);
-          // Chuyển tiếp tới trang /WEB-INF/views/login.jsp
+          // Chuyển tiếp tới trang login.jsp
           RequestDispatcher dispatcher //
           = this.getServletContext().getRequestDispatcher("/Login.jsp");
  
@@ -95,10 +94,18 @@ public class DoLoginServlet extends HttpServlet {
           // Ngược lại xóa Cookie
           else  {
               MyUtils.deleteUserCookie(response);
-          }            
-          
-          // Rồi chuyển hướng sang trang /userInfo.
-          response.sendRedirect(request.getContextPath() + "/userHome");
+          } 
+          System.out.println(user.getUserRole());
+          if(user.getUserRole().equals("admin"))  {
+	          // Rồi chuyển hướng sang trang admin
+	          response.sendRedirect(request.getContextPath() + "/adminHome");
+	          return;
+          }
+          if (user.getUserRole().equals("user")){
+        	// Rồi chuyển hướng sang trang home cua user
+	          response.sendRedirect(request.getContextPath() + "/userHome");
+	          return;
+          }
       }
   }
  

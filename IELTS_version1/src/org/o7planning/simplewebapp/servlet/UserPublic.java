@@ -10,11 +10,11 @@ import javax.servlet.http.HttpSession;
  
 import UserAccount.TaiKhoaNguoiDung;
 import org.o7planning.simplewebapp.utils.MyUtils;
-@WebServlet(urlPatterns = { "/userMyFile" })
-public class UserMyFileServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/publicWebUser" })
+public class UserPublic extends HttpServlet {
 	  private static final long serialVersionUID = 1L;
 	 
-	  public UserMyFileServlet() {
+	  public UserPublic() {
 	      super();
 	  }
 	  @Override
@@ -35,7 +35,7 @@ public class UserMyFileServlet extends HttpServlet {
 	      request.setAttribute("user", loginedUser);
 	 
 	      // Đã login rồi thì chuyển tiếp sang /WEB-INF/views/userInfoView.jsp
-	      RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/MyFile.jsp");
+	      RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/PublicFile.jsp");
 	      dispatcher.forward(request, response);
 	 
 	  }

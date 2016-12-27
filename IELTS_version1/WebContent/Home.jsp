@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -12,8 +13,28 @@
 		<!-- PHAN HEADER -->
 		<jsp:include page="_menu.jsp"></jsp:include>
 		<!--  -->
-		<div id="left"></div>
-		<div id="content"></div>
+		<div id="left">
+			<jsp:include page="_menuleft.jsp"></jsp:include>
+		</div>
+		<div id="content">
+			<table class="table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<td class="text-center" >id</td>
+						<td class="text-center">Score</td>
+						<td class="text-center">Date</td>
+				</thead>
+				<tbody>
+					<c:forEach items="${diemList}" var="diems" >
+					<tr>
+						<td class="text-center">${diems.idDiem}</td>
+						<td class="text-center">${diems.diem}</td>
+						<td class="text-center">${diems.ngay}</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
 		<!-- PHAN CANLENDAR, THOI KHOA BIEU, NHAC NHO -->
 		<div id="right" class="navbar-inverse">
 			<div class="navbar navbar-inverse">
@@ -22,7 +43,7 @@
 						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a></li>
 						<li>
 							<label for="TaoTKB"></label>
-							<a href="userTimetable"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
+							<a href="Lich.jsp"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
 						</li>
 					</ul>
 					<div id="calendar" class="panel-collapse collapse"></div>

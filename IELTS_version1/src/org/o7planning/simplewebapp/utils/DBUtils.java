@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import UserAccount.PublicFile;
+
 import UserAccount.TaiKhoaNguoiDung;
 public class DBUtils {
-	public static List<TaiKhoaNguoiDung> queryProduct(Connection conn) throws SQLException {
+	public static List<TaiKhoaNguoiDung> queryUser(Connection conn) throws SQLException {
 	      String sql = "Select a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date, a.avatar, a.active, a.public_time from users a ";
 	 
 	      PreparedStatement pstm = conn.prepareStatement(sql);
@@ -85,16 +85,39 @@ public class DBUtils {
 	      return null;
 	  }
 	  public static TaiKhoaNguoiDung checkActiveUser(Connection conn, String userName, int flag) throws SQLException{
-		  String sql ="Select a.username from users a"
+		  String sql ="Select a.user_id, a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date, a.avatar, a.active, a.public_time  from users a"
 		  		+ " where a.username = ? and a.active = ?";
 		  PreparedStatement pstm = conn.prepareStatement(sql);
 		  pstm.setString(1, userName);
 		  pstm.setInt(2, flag);
 		  ResultSet rs = pstm.executeQuery();
 		  if(rs.next()){
-			  String username = rs.getString("username");
+			  String user_id =rs.getString("user_id");
+			  String fullName = rs.getString("fullname");
+	          String email = rs.getString("email");
+	          String password =rs.getString("pass");
+	          String telephone =rs.getString("telephone");
+	          String nationaly = rs.getString("nationaly");
+	          String dateOfBirth = rs.getString("date_of_birth");
+	          String userRole = rs.getString("user_role");
+	          String ativationDate = rs.getString("ativation_date");
+	          String avatar = rs.getString("avatar");
+	          String active = rs.getString("active");
+	          String publicDate = rs.getString("public_time");
 			  TaiKhoaNguoiDung user =new TaiKhoaNguoiDung();
-			  user.setUserName(username);
+			  user.setIdUser(user_id);
+			  user.setUserName(userName);
+	          user.setPassword(password);
+	          user.setFullName(fullName);
+	          user.setEmail(email);
+	          user.setTelephone(telephone);
+	          user.setNationaly(nationaly);
+	          user.setDateOfBirth(dateOfBirth);
+	          user.setUserRole(userRole);
+	          user.setAtivationDate(ativationDate);
+	          user.setAvatar(avatar);
+	          user.setActive(active);
+	          user.setPublicDate(publicDate);
 			  return user;
 		  }
 		  return null;
@@ -129,7 +152,7 @@ public class DBUtils {
 	  }
 	  public static TaiKhoaNguoiDung findUser(Connection conn, String userName) throws SQLException {
 		  
-		  String sql = "Select a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date, a.avatar, a.active, a.public_time from users a "
+		  String sql = "Select a.user_id, a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date, a.avatar, a.active, a.public_time from users a "
 		              + " where a.username = ?";
 	 
 	      PreparedStatement pstm = conn.prepareStatement(sql);
@@ -138,6 +161,7 @@ public class DBUtils {
 	      ResultSet rs = pstm.executeQuery();
 	 
 	      if (rs.next()) {
+	    	  String user_id = rs.getString("user_id");
 	          String password = rs.getString("pass");
 	          String fullName = rs.getString("fullname");
 	          String email = rs.getString("email");
@@ -150,6 +174,7 @@ public class DBUtils {
 	          String active = rs.getString("active");
 	          String publicDate = rs.getString("public_time");
 	          TaiKhoaNguoiDung user = new TaiKhoaNguoiDung();
+	          user.setIdUser(user_id);
 	          user.setUserName(userName);
 	          user.setPassword(password);
 	          user.setPassword(password);
@@ -169,7 +194,7 @@ public class DBUtils {
 	  }
 
 	  public static void insertUser(Connection conn, TaiKhoaNguoiDung user) throws SQLException {
-		  String sql = "Insert into users(fullname,username, email, pass, user_role, ativation_date, active) values (?,?,?,?,?,?,?)";
+		  String sql = "Insert into users(fullname,username, email, pass, user_role, ativation_date, active, public_time) values (?,?,?,?,?,?,?,?)";
 		  PreparedStatement pstm = conn.prepareStatement(sql);
 		  pstm.setString(1, user.getFullName());
 		  pstm.setString(2, user.getUserName());
@@ -178,17 +203,22 @@ public class DBUtils {
 		  pstm.setString(5, user.getUserRole());
 		  pstm.setString(6, user.getAtivationDate());
 		  pstm.setString(7, user.getActive());
+		  pstm.setString(8, user.getPublicDate());
 		  pstm.executeUpdate();
 	}
 	 
-	  public static void deleteProduct(Connection conn, String code) throws SQLException {
-	      String sql = "Delete Product where Code= ?";
-	 
-	      PreparedStatement pstm = conn.prepareStatement(sql);
-	 
-	      pstm.setString(1, code);
-	 
-	      pstm.executeUpdate();
+	  public static void updatePublicDateUser(Connection conn, TaiKhoaNguoiDung user) throws SQLException{
+		 String sql = "Update users set public_time = ? where username = ?";
+		 PreparedStatement pstm = conn.prepareStatement(sql);
+		 pstm.setString(1, user.getPublicDate());
+		 pstm.setString(2, user.getUserName());
+		 pstm.executeUpdate();
+	 }	
+	  public static void updateAvatarUser(Connection conn, String userName, String avatar) throws SQLException{
+		  String sql = "Update users set avatar = ? where username = ?";
+		  PreparedStatement pstm = conn.prepareStatement(sql);
+		  pstm.setString(1,avatar);
+		  pstm.setString(2,userName);
+		  pstm.executeUpdate();
 	  }
-	 
-	}
+}

@@ -1,9 +1,7 @@
 package UserAccount;
 
 public class TaiKhoaNguoiDung {
-	 public static final String GENDER_MALE ="M";
-	   public static final String GENDER_FEMALE = "F";
-	    
+       private String idUser;
 	   private String userName;
 	   private String password;
 	   private String fullName;
@@ -20,7 +18,7 @@ public class TaiKhoaNguoiDung {
 	   public TaiKhoaNguoiDung() {
 	        
 	   }
-	   public TaiKhoaNguoiDung(String fullNameRegis,String userNameRegis,String emailRegis,String passwordRegis,String userRoleRegis,String ativationDate,String active) {
+	   public TaiKhoaNguoiDung(String fullNameRegis,String userNameRegis,String emailRegis,String passwordRegis,String userRoleRegis,String ativationDate,String active, String publicTime) {
 	        this.fullName = fullNameRegis;
 	        this.userName = userNameRegis;
 	        this.email = emailRegis;
@@ -28,6 +26,17 @@ public class TaiKhoaNguoiDung {
 	        this.userRole = userRoleRegis;
 	        this.ativationDate = ativationDate;
 	        this.active = active;
+	        this.publicDate = publicTime;
+	   }
+	   public TaiKhoaNguoiDung (String username, String publicTime){
+		   this.userName = username;
+		   this.publicDate = publicTime;
+	   }
+	   public String getIdUser(){
+		   return idUser;
+	   }
+	   public void setIdUser(String idUser){
+		   this.idUser = idUser;
 	   }
 	   public String getUserName() {
 	       return userName;
