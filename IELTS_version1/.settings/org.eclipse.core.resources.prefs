@@ -4,8 +4,11 @@ encoding//WebContent/demo.jsp=UTF-8
 encoding//src/org/o7planning/simplewebapp/conn/MySQLConnUtils.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/filter/CookieFilter.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/filter/JDBCFilter.java=UTF-8
+<<<<<<< HEAD
 encoding//src/org/o7planning/simplewebapp/servlet/ChamBaiServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/CreateTestServlet.java=UTF-8
+=======
+>>>>>>> origin/master
 encoding//src/org/o7planning/simplewebapp/servlet/DoDanhMucServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/DoLoginServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/DoLogoutServlet.java=UTF-8
@@ -21,7 +24,11 @@ encoding//src/org/o7planning/simplewebapp/servlet/UserPublic.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/UserTimetableServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/WebHomeServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/WebUserServlet.java=UTF-8
+<<<<<<< HEAD
 encoding//src/org/o7planning/simplewebapp/servlet/adminServlet.java=UTF-8
+=======
+encoding//src/org/o7planning/simplewebapp/servlet/createTest.java=UTF-8
+>>>>>>> origin/master
 encoding//src/org/o7planning/simplewebapp/servlet/doAvatarServlet.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/doCreateTest.java=UTF-8
 encoding//src/org/o7planning/simplewebapp/servlet/doDeleteFileServlet.java=UTF-8

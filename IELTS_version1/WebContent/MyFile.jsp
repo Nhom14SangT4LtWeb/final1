@@ -117,7 +117,11 @@
 							<a name="doc_guid"href="doViewDoc?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-tasks"></a>
 							<a href="#myModal" role="button" data-toggle="modal" class="glyphicon glyphicon-share"></a>
 							<a href="doDownloadFile?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-cloud-download"></a>
+<<<<<<< HEAD
 							<a href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
+=======
+							<a name="doc_guid"href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
+>>>>>>> origin/master
 						</td>
 					</tr>
 					</c:forEach>

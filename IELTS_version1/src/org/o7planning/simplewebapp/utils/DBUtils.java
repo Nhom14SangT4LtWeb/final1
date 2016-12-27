@@ -213,6 +213,7 @@ public class DBUtils {
 		 pstm.setString(1, user.getPublicDate());
 		 pstm.setString(2, user.getUserName());
 		 pstm.executeUpdate();
+<<<<<<< HEAD
 	 }	
 	  public static void updateAvatarUser(Connection conn, String userName, String avatar) throws SQLException{
 		  String sql = "Update users set avatar = ? where username = ?";
@@ -221,4 +222,7 @@ public class DBUtils {
 		  pstm.setString(2,userName);
 		  pstm.executeUpdate();
 	  }
+=======
+	 }	 
+>>>>>>> origin/master
 }

@@ -93,7 +93,11 @@
 		<div class="panel panel-default">
   			<div class="panel-body">
   				<div class="col-md-6">
+<<<<<<< HEAD
     				<a href = "Themuser.jsp"></a><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register</button>
+=======
+    				<button type="button" class="btn btn-primary"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Register Pasien Baru </button>
+>>>>>>> origin/master
   				</div><!-- /.col-lg-6 -->
   				<div class="col-md-6">
     				<div class="input-group">

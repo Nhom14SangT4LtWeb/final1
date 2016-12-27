@@ -52,7 +52,11 @@
 			<br>
 			<br>
 			<div class="col-md-4 col-sm-4 col-xs-12 text-center">
+<<<<<<< HEAD
 				<img id="avatar" src="${user.avatar}" class="img-responsive"
+=======
+				<img id="avatar" src="${avatar_guid}" class="img-responsive"
+>>>>>>> origin/master
 					alt="exo1" width="304" height="236"> <br>
 				<button type="button" class="changeavatar">
 					<span class="glyphicon glyphicon-pencil" style="color: red"></span>
