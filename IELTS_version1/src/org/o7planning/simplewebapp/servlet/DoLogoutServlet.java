@@ -24,9 +24,29 @@ import org.o7planning.simplewebapp.utils.MyUtils;
 @WebServlet("/doLogout")
 public class DoLogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
     public DoLogoutServlet() {
         super();
     }
+=======
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+>>>>>>> origin/master
+    public DoLogoutServlet() {
+        super();
+    }
+<<<<<<< HEAD
+=======
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+>>>>>>> origin/master
+>>>>>>> origin/master
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		TaiKhoaNguoiDung loginedUser = MyUtils.getLoginedUser(session);

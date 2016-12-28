@@ -22,7 +22,11 @@ public class MySQLConnUtils {
 	    Class.forName("com.mysql.jdbc.Driver");
 	 
 	    // Cấu trúc URL Connection dành cho MySQL
+<<<<<<< HEAD
 	    String connectionURL = "jdbc:mysql://localhost:3306/ielts?useUnicode=true&characterEncoding=UTF-8";
+=======
+	    String connectionURL = "jdbc:mysql://localhost:3306/eilts?useUnicode=true&characterEncoding=UTF-8";
+>>>>>>> origin/master
 	 
 	    Connection conn = DriverManager.getConnection(connectionURL, userName, password);
 	    return conn;

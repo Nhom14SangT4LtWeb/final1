@@ -34,9 +34,23 @@ public class doDeleteFileServlet extends HttpServlet {
 		String danhmuchienhanh = request.getParameter("danhmuchienhanh");
 		String filePath = getServletContext().getRealPath("") + doc_guid;
 		Connection conn = MyUtils.getStoredConnection(request);
+<<<<<<< HEAD
 		HttpSession session = request.getSession();
 		TaiKhoaNguoiDung loginedUser = MyUtils.getLoginedUser(session);
 		String idUser = loginedUser.getIdUser();
+=======
+<<<<<<< HEAD
+		HttpSession session = request.getSession();
+		TaiKhoaNguoiDung loginedUser = MyUtils.getLoginedUser(session);
+		String idUser = loginedUser.getIdUser();
+=======
+		//Lấy id người dùng để lọc lấy dữ liệu Tài liệu theo người dùng
+		HttpSession session = request.getSession();
+		TaiKhoaNguoiDung loginedUser = MyUtils.getLoginedUser(session);
+		String idUser= loginedUser.getIdUser();
+		System.out.println("Delete operation is failed.");
+>>>>>>> origin/master
+>>>>>>> origin/master
 		try{
 			File deleteFile = new File(filePath);
 			if(deleteFile.delete()){
@@ -45,8 +59,17 @@ public class doDeleteFileServlet extends HttpServlet {
       	      	} catch (SQLException e) {
       	          e.printStackTrace();
       	      	}
+<<<<<<< HEAD
 	             
                 //load lai danh sach tai lieu theo danh muc hien hanh
+=======
+<<<<<<< HEAD
+	             
+                //load lai danh sach tai lieu theo danh muc hien hanh
+=======
+                /*--------LOAD LAI DANH SACH FILE CUA DANH MUC HIEN HANH------------*/
+>>>>>>> origin/master
+>>>>>>> origin/master
                 List<TaiLieu> list = null;
 	 	      	try {
 	 	          list = TaiLieuUtils.queryTaiLieu(conn,danhmuchienhanh+"%",idUser);
@@ -55,7 +78,14 @@ public class doDeleteFileServlet extends HttpServlet {
 	 	      	}
 	 		   request.setAttribute("docList", list);
 	           request.setAttribute("danhmuchienhanh", danhmuchienhanh);
+<<<<<<< HEAD
 	           request.setAttribute("user",loginedUser );
+=======
+<<<<<<< HEAD
+	           request.setAttribute("user",loginedUser );
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 	           RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/MyFile.jsp");
 	 	       dispatcher.forward(request, response);
             }else{

@@ -55,8 +55,32 @@
 							class="caret"></span>
 					</a>
 						<ul class=" navbar-inverse dropdown-menu">
+<<<<<<< HEAD
 							<li><a href="listUser" style='color: white'>User</a></li>
 							<li><a href="listAdmin" style='color: white'>Admin</a></li>
+=======
+							<li><a href="ListUser.jsp" style='color: white'>User</a></li>
+							<li><a href="Listadmin.jsp" style='color: white'>Admin</a></li>
+						</ul></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="MyFile.jsp"> Kho tài liệu <span
+							class="caret"></span>
+					</a>
+						<ul class=" navbar-inverse dropdown-menu">
+							<li><a href="#paper51" style='color: white'>Đã lưu trữ</a></li>
+							<li><a href="#paper52" style='color: white'>Đang chờ phê
+									duyệt</a></li>
+						</ul></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="MyFile.jsp"> Mail <span
+							class="caret"></span>
+					</a>
+						<ul class=" navbar-inverse dropdown-menu">
+							<li><a href="#paper51" style='color: white'>Mail hệ
+									thống</a></li>
+							<li><a href="#paper52" style='color: white'>Mục chờ xử
+									lý</a></li>
+>>>>>>> origin/master
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

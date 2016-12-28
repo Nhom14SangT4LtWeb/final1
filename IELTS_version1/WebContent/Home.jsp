@@ -16,6 +16,10 @@
 		<div id="left">
 			<jsp:include page="_menuleft.jsp"></jsp:include>
 		</div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 		<div id="content">
 			<table class="table table-hover" style="width: 100%">
 				<thead>
@@ -35,6 +39,12 @@
 				</tbody>
 			</table>
 		</div>
+<<<<<<< HEAD
+=======
+=======
+		<div id="content"></div>
+>>>>>>> origin/master
+>>>>>>> origin/master
 		<!-- PHAN CANLENDAR, THOI KHOA BIEU, NHAC NHO -->
 		<div id="right" class="navbar-inverse">
 			<div class="navbar navbar-inverse">

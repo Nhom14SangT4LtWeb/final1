@@ -6,7 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import org.o7planning.simplewebapp.conn.*;
+=======
+
+>>>>>>> origin/master
 import UserAccount.TaiKhoaNguoiDung;
 import UserAccount.TaiKhoaNguoiDung1;
 public class DBUtils {
@@ -214,6 +218,10 @@ public class DBUtils {
 		 pstm.setString(1, user.getPublicDate());
 		 pstm.setString(2, user.getUserName());
 		 pstm.executeUpdate();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 	 }	
 	  public static void updateAvatarUser(Connection conn, String userName, String avatar) throws SQLException{
 		  String sql = "Update users set avatar = ? where username = ?";
@@ -221,6 +229,7 @@ public class DBUtils {
 		  pstm.setString(1,avatar);
 		  pstm.setString(2,userName);
 		  pstm.executeUpdate();
+<<<<<<< HEAD
 	  }
 	  public static List<TaiKhoaNguoiDung1> queryProduct(Connection conn) throws SQLException {
 	      String sql = "Select a.user_id, a.username, a.pass, a.fullname, a.email, a.telephone, a.nationaly, a.date_of_birth, a.user_role, a.ativation_date,"
@@ -328,4 +337,10 @@ public class DBUtils {
 		 	 }
 	  
 	
+=======
+	  }
+=======
+	 }	 
+>>>>>>> origin/master
+>>>>>>> origin/master
 }

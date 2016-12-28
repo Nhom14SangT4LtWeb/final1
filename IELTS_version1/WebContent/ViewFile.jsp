@@ -10,6 +10,14 @@
       <form action="doDanhMuc" method="POST">
          <input type="submit" value="Return" onclick="Redirect();" />
       </form>
+<<<<<<< HEAD
 <iframe style='width:100%;height:900px' name="path" src="${path}" ></iframe>
+=======
+<<<<<<< HEAD
+<iframe style='width:100%;height:900px' name="path" src="${path}" ></iframe>
+=======
+<iframe style='width:100%;height:900px' name="path"src="${path}" ></iframe>
+>>>>>>> origin/master
+>>>>>>> origin/master
 </body>
 </html>

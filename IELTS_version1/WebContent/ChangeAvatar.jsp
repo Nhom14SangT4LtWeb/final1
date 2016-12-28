@@ -26,52 +26,63 @@
 <link href="css/ResetFormatPage.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/selector.css">
 <link href="css/reponsive.css" rel="stylesheet" type="text/css" />
+
 <!-- Thu vien calendar -->
-<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 <link rel="stylesheet" href="css/Calendar_style.css" media="screen">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui-datepicker.min.js"></script>
-<script>
- var erro = ${errorString};
- if(erro !=null){alert('${errorString}');} 
-</script>
+<link rel="stylesheet" href="css/ChatBox.css" media="screen">
+
+<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 </head>
 <body>
 	<div id="main">
 		<!-- PHAN LOGO AND COVER IMAGES -->
-		<jsp:include page="_header.jsp"></jsp:include>
-		<!-- PHAN HEADER -->
-		<jsp:include page="_menu.jsp"></jsp:include>
-		<!--  -->
-		<div id="left">
-			<jsp:include page="_menuleft.jsp"></jsp:include>
+		<div id="head">
+			<div id="logo" class="img-responsive"></div>
+			<div id="baner" class="img-responsive"></div>
 		</div>
+		<!-- PHAN HEADER -->
+		<div id="head-link" class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">THE WORLD SPEAKING IELTS</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#">Home</a></li>
+					<li class="active"><a href="MyProfile.jsp">My Profile</a></li>
+					<li><a href="MyProfile.jsp">My File</a></li>
+					<li><a href="MyBox.jsp">My Box</a></li>
+					<li><a href="PublicFile.jsp">Public File</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="MyProfile.jsp"><span
+							class="glyphicon glyphicon-user"></span>kemotsach</a></li>
+					<li><a href="WEB.jsp"><span
+							class="glyphicon glyphicon-log-in"></span>Log out</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--  -->
+		<div id="left"></div>
 		<!--  -->
 		<div id="content" class="row">
 			<br>
 			<br>
 			<br>
 			<div class="col-md-4 col-sm-4 col-xs-12 text-center">
-<<<<<<< HEAD
-				<img id="avatar" src="${user.avatar}" class="img-responsive"
-=======
-<<<<<<< HEAD
-				<img id="avatar" src="${user.avatar}" class="img-responsive"
-=======
-				<img id="avatar" src="${avatar_guid}" class="img-responsive"
->>>>>>> origin/master
->>>>>>> origin/master
+				<img id="avatar" src="imgs/hoa.jpg" class="img-responsive"
 					alt="exo1" width="304" height="236"> <br>
 				<button type="button" class="changeavatar">
 					<span class="glyphicon glyphicon-pencil" style="color: red"></span>
 					Change avatar
 				</button>
 			</div>
-			<div class="col-md-8 col-sm-8 col-xs-12" id="accordion">
-				<table class="table table-hover" style="width: 100%">
+			<div class="col-md-8 col-sm-8 col-xs-12">
+				<table class="table table-hover" id="#accordion" style="width: 100%">
 					<tr>
 						<td>Fullname:</td>
-						<td>${user.fullName}</td>
+						<td>Phạm Xuân Hoàng</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editfullname" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -87,7 +98,7 @@
 					</tr>
 					<tr>
 						<td>Username:</td>
-						<td>${user.userName}</td>
+						<td>kemotsach</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#edituser" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -103,7 +114,7 @@
 					</tr>
 					<tr>
 						<td>Telephone number:</td>
-						<td>${user.telephone}</td>
+						<td>0999999199919</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editphone" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -119,7 +130,7 @@
 					</tr>
 					<tr>
 						<td>Date of birth:</td>
-						<td>${user.dateOfBirth}</td>
+						<td>30/07/1996</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editbirth" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -135,7 +146,7 @@
 					</tr>
 					<tr>
 						<td>Nationaly:</td>
-						<td>${user.nationaly}</td>
+						<td>Vietnamese</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editnational" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -151,7 +162,7 @@
 					</tr>
 					<tr>
 						<td>Email:</td>
-						<td>${user.email}</td>
+						<td>qwerty@gmail.com</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editemail" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -167,7 +178,7 @@
 					</tr>
 					<tr>
 						<td>Password:</td>
-						<td><input type="password" disabled="disabled" value='${user.password}'></td>
+						<td>************</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editpass" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -194,11 +205,11 @@
 			<div class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a></li>
-						<li>
-							<label for="TaoTKB"></label>
-							<a href="Lich.jsp"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
+						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a>
 						</li>
+						<li><label for="TaoTKB"></label> <a href="IndexCalendar.jsp"><span
+								class="glyphicon glyphicon-plus" id="TaoTKB"
+								title="Tao thoi khoa bieu"></span></a></li>
 					</ul>
 					<div id="calendar" class="panel-collapse collapse"></div>
 				</div>
@@ -248,32 +259,70 @@
 			</div>
 		</div>
 		<!-- PHAN FOOTER -->
-		<jsp:include page="_footer.jsp"></jsp:include>
-	</div>
-	<!-- PHAN HOP THOAI CHANGE AVATAR -->
-	<div id="opacityFullPage" class="opacityFull"></div>
-	<div id="showmodalchangeavatar" class="modalUpload">
-	<form name="avatar" action="${pageContext.request.contextPath}/doAvatar" method="POST" enctype="multipart/form-data">
-		<div class="panel panel-info">
-				<div class="panel-heading">
-					<strong>Change Avatar</strong>
-				</div>
-				<div class="btn panel-info  btn-block">
-					<strong><input type="file" size="60" id="file" name="file"></strong>
-					<hr>
-					<input type="submit" class="btn btn-md btn-ok"  value="OK">
-					<input type="button" class="btn btn-md btn-cancel cancelAvatar" value="Cancel"/>
+		<div id="footer" class="navbar navbar-inverse ">
+			<div class="row">
+				<div class="text-center">
+					<address>
+						<strong style="color: #dbdbdb"> Trường Đại học Sư Phạm Kỹ
+							Thuật TP. Hồ Chí Minh - Khoa Công Nghệ Thông Tin<br> THIẾT
+							KẾ WEBSITE HỖ TRỢ LUYỆN THI IELTS<br> Nhóm thực hiện:
+							GROUP14_ST4_LTW_EGT Địa chỉ: 484 Lê Văn Việt,Q9,Tp.HCM. <br>
+						</strong>
+					</address>
 				</div>
 			</div>
-	</form>
+		</div>
 	</div>
-<<<<<<< HEAD
-=======
+	<!-- PHAN HOP THOAI CHANGE AVATAR -->
+	<div id="showmodalchangeavatar" class="opacityFull"></div>
+	<div id="opacityFullPage" class="modalUpload">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<strong>Update Avatar</strong>
+			</div>
+			<div class="btn panel-info  btn-block btn-file">
+				<strong><input type="file" class=""></strong>
+				<hr>
+				<a href="MyProfile.jsp"><input type="button"
+					class="btn btn-md btn-ok okAvatar" value="OK"></a> <input
+					type="button" class="btn btn-md btn-cancel cancelAvatar"
+					value="Cancel">
+			</div>
+		</div>
+	</div>
 	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-	<jsp:include page="_chatkythuat.jsp"></jsp:include>
->>>>>>> origin/master
-	<!-- hien thi hop thoai doi avatar -->
+	<button class="btn btn-info fixChat chatKyThuat">ĐỘI HỖ TRỢ KỸ
+		THUẬT</button>
+	<div id="abc">
+		<div class="panel panel-info fixPa">
+			<div class="panel-heading">
+				<strong>ĐỘI HỖ TRỢ KỸ THUẬT CHÀO BẠN</strong>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<span class="badge pull-left"> Chào bạn! </span> <br> <br>
+					<span class="badge"> Bạn đang gặp phải vấn đề gì? </span>
+					<div class="input-group fixInp">
+						<input type="text" class="form-control"> <span
+							class="input-group-btn">
+							<button class="btn btn-default" type="button">Send!</button>
+							<button type="button" class="btn btn-default ">
+								<span class="glyphicon glyphicon-paperclip"></span>
+							</button>
+						</span>
+					</div>
+					<!-- /input-group -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- SHOW HIDE CHAT BOX HO TRO KY THUAT -->
 	<script>
+	$(document).ready(function(){
+	       $(".chatKyThuat").click(function(){
+	           $("#abc").toggle();
+	       })
+	})
     $(document).ready(function(){
         $(".changeavatar").click(function(){
             $("#opacityFullPage").toggle();
@@ -287,8 +336,8 @@
         })
     });
   	</script>
-  	<!-- Truyen lich -->
-  	<script>
+	<!-- TRUYEN CALENDAR -->
+	<script>
     	$('#calendar').datepicker({
       	  	inline: true,
         	firstDay: 1,
@@ -301,6 +350,6 @@
   		$( function() {
     	$( document ).tooltip();
   		} );
-  	</script>	
+  	</script>
 </body>
 </html>

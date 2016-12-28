@@ -43,6 +43,10 @@
 		<!-- PHAN HEADER -->
 		<jsp:include page="_menu.jsp"></jsp:include>
 		<!--  -->
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 		<div class="row" style='margin-left:1%'>
 			<div class="col-sm-6" >
 				<div align="justify" class="col-md-8">
@@ -178,20 +182,85 @@
 		           </center>
 		       </form>
 		</div>
+<<<<<<< HEAD
+=======
+=======
+		<div id="left">
+		<jsp:include page="_menuleft.jsp"></jsp:include>	
+		</div>
+		<!-- PHAN MAIN -->	
+		<div class="row" style ='border: 1px solid #CDCDCD;width: 843px;min-height: 900px;   float:left;margin-left: 5px;margin-bottom: 5px;'>
+			<!-- Navbar chính -->
+			<div class="navbar navbar-default">
+  				<div class="container-fluid">
+				    <form id="frmdanhmuc" name="frmdanhmuc" action="doDanhMuc?selected" method="POST" class="navbar-form navbar-left" style='width:60%'>
+					    <button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th-list"></span></button>
+					    <select id ="danhmuc" name="danhmuc" onchange="document.frmdanhmuc.submit();" class="btn btn-default navbar-btn" style='width:40%;'>
+				          <option value="Document" selected>TEST</option>
+				         </select>
+			        </form>
+  				</div>
+			</div>
+			<form method="post" action="">
+			<div class="table-responsive">
+			<table class="table table-hover" style="width: 100%">
+				<thead>
+					<tr>
+						<td class="text-center">Tên đề</td>
+						<td class="text-center" >Ten Tài Liệu</td>
+						<td style='width:15%'>Ngày tạo</td>
+						<td class="text-center" style='width:10%'>Thao tác</td>
+				</thead>
+				<tbody>
+					<c:forEach items="${docList}" var="docs" >
+					<tr>
+						<td>${tende}</td>
+						<td><p name="doc_name" id="doc_name">${docs.doc_name}</p></td>
+						<td>${docs.upload_date}</td>
+						<td class="text-center">
+							<a name="doc_guid"href="" class="glyphicon glyphicon-tasks"></a>
+							<a href="" class="glyphicon glyphicon-cloud-download"></a>
+							<a name="doc_guid"href="" class="glyphicon glyphicon-trash"></a>
+						</td>
+					</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</form>
+>>>>>>> origin/master
+>>>>>>> origin/master
 		</div>
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
+<<<<<<< HEAD
+=======
+	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
+		<jsp:include page="_chatkythuat.jsp"></jsp:include>
+>>>>>>> origin/master
 		<script>
 	  		$( function() {
 	    	$( document ).tooltip();
 	  		} );
   		</script>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
   		<SCRIPT LANGUAGE="JavaScript">
 		function confirmAction() {
 			return confirm("Nộp bài thi!")
 			document.getElementById('btnnop').disabled = true;
 		}
 	</SCRIPT>
+<<<<<<< HEAD
+=======
+=======
+<script>
+$('#danhmuc').val("{tende}");
+</script>
+>>>>>>> origin/master
+>>>>>>> origin/master
 </body>
 </html>

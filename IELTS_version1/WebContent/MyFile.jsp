@@ -80,6 +80,10 @@
 					        <ul class="dropdown-menu">
 					          <li><a href="#" class="btnuploadFile">File</a></li>
 					          <li role="separator" class="divider"></li>
+<<<<<<< HEAD
+=======
+					          <li><a onclick="DoBrowseFolder();return false">Folder</a></li>
+>>>>>>> origin/master
 					        </ul>
 					  	</div>
 					</div>
@@ -88,9 +92,17 @@
 						<select id ="sort"  name="sort" onchange="document.sortby.submit();" class="btn btn-default navbar-btn">
 				          <option selected="selected" value="">-Sort by-</option>
 				          <option value="" >File</option>
+<<<<<<< HEAD
 				        </select>
 			        </form>
        				<button id ="viewdoc"name="viewdoc" type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-tasks"></span> View Document</button>
+=======
+				          <option value="" >Folder</option>
+				        </select>
+			        </form>
+       				<button id ="viewdoc"name="viewdoc" type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-tasks"></span> View Document</button>
+       				<button data-target="#myModal" data-toggle="modal"type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-share"></span> Share</button>
+>>>>>>> origin/master
     			</div>
 			</div>
 			<!--  -->
@@ -112,8 +124,18 @@
 						<td>${docs.upload_date}</td>
 						<td class="text-center">
 							<a name="doc_guid"href="doViewDoc?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-tasks"></a>
+<<<<<<< HEAD
 							<a href="doDownloadFile?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-cloud-download"></a>
 							<a href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
+=======
+							<a href="#myModal" role="button" data-toggle="modal" class="glyphicon glyphicon-share"></a>
+							<a href="doDownloadFile?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-cloud-download"></a>
+<<<<<<< HEAD
+							<a href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
+=======
+							<a name="doc_guid"href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
+>>>>>>> origin/master
+>>>>>>> origin/master
 						</td>
 					</tr>
 					</c:forEach>
@@ -189,6 +211,11 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
+		<jsp:include page="_chatkythuat.jsp"></jsp:include>
+>>>>>>> origin/master
 		<!-- TRUYEN CALENDAR -->
 		<!-- hien thi hop thoai upload -->
 		<script>

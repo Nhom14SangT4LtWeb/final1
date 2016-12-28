@@ -48,25 +48,67 @@
 		</div>
 		<!-- PHAN MAIN -->	
 		<div class="row" style ='border: 1px solid #CDCDCD;width: 843px;min-height: 900px;   float:left;margin-left: 5px;margin-bottom: 5px;'>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 			<br>
 			<form method="post" action="${pageContext.request.contextPath}/doCreateTest" enctype="multipart/form-data">
 				<div class="panel panel-info">
 					<div class="panel-heading">PHẦN ĐỀ</div>
 					<p style="color:red;">${errorStringUpload}</p>
+<<<<<<< HEAD
+=======
+=======
+			<!-- Navbar chính -->
+			<div class="navbar navbar-default">
+  				<div class="container-fluid">
+				    <form class="navbar-form" role="search" style='margin-top:2%'>
+  						<div class="input-group">
+      						<span class="input-group-btn">
+        						<button class="btn btn-default " type="button">Tạo đề <span class="glyphicon glyphicon-plus"></span></button>
+      							<button class="btn btn-default " type="button">Xem <span class="glyphicon glyphicon-next"></span></button>
+      						</span>
+    					</div>
+					</form>
+  				</div>
+			</div>
+			<form method="post" action="${pageContext.request.contextPath}/doCreateTest" enctype="multipart/form-data">
+				<div class="row">
+				<div class="form-group">
+				    <label for="tende" class="col-sm-1 control-label">Tên đề:</label>
+				    <div class="col-sm-5">
+				      <input type="text" class="form-control" id="tende" placeholder="Đề số mấy">
+				    </div>
+				</div>
+				</div>
+				<br>
+				<div class="panel panel-info">
+					<div class="panel-heading">PHẦN ĐỀ</div>
+>>>>>>> origin/master
+>>>>>>> origin/master
 					<div class="panel-body">
 						Select file to upload:
 				        <br />
 				        <div class="form-group">
 			    			<label for="inputTailieu3" class="col-sm-3 control-label">Tài liệu:</label>
 			    			<div class="col-sm-9">
+<<<<<<< HEAD
 				        		<input type="file" name="file"/>
+=======
+				        		<input type="file" name="file"  />
+>>>>>>> origin/master
 				        		<br />
 				        	</div>
 				        </div>
 				        <div class="form-group">
 			    			<label for="inputTailieu3" class="col-sm-3 control-label">mp3 kèm:</label>
 			    			<div class="col-sm-9">
+<<<<<<< HEAD
 				        		<input type="file" name="file" />
+=======
+				        		<input type="file" name="file"  />
+>>>>>>> origin/master
 				        		<br />
 				        	</div>
 				        </div>
@@ -75,6 +117,10 @@
 				<div class="panel panel-info">
 					<div class="panel-heading">PHẦn ĐÁP ÁN</div>
 					<div class="panel-body">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 						<p style="color:red;">${errorString}</p>
 				        <table border="1" width="100%" height="500px" cellpadding="5">
 			              
@@ -147,6 +193,31 @@
 				<center><Strong><input type="reset" value="Reset" class="btn btn-info"/>
 		        <input type="submit" class="btn btn-info" value="Submit"/></Strong></center>
 				</div>
+<<<<<<< HEAD
+=======
+=======
+					        Select file to upload:
+					        <br />
+					        <input type="file" name="file"  />
+					        <br />
+					        <input type="file" name="file" />
+					</div>
+				</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">PHẦN SCRIPT</div>
+				<div class="panel-body">
+				        Select file to upload:
+				        <br />
+				        <input type="file" name="file"  />
+				        <br />
+				        <input type="file" name="file" />
+				</div>
+			</div>
+				<br />
+				<br />
+				<input type="submit" value="Upload" style='float:right; margin:8%'>
+>>>>>>> origin/master
+>>>>>>> origin/master
 			</form>
 		</div>		
 		<!-- PHAN FOOTER -->

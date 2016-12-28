@@ -44,6 +44,15 @@ public class doAvatarServlet extends HttpServlet {
 	          response.sendRedirect(request.getContextPath() + "/login");
 	          return;
 	      }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+	      // Ghi thông tin vào request trước khi forward.
+	      request.setAttribute("user", loginedUser);
+	 
+>>>>>>> origin/master
+>>>>>>> origin/master
 	      // ---------------------------PHAN THUC HIEN CHINH-----------------------------
 	      String appPath = request.getServletContext().getRealPath("");
           appPath = appPath.replace('\\', '/');
@@ -59,8 +68,16 @@ public class doAvatarServlet extends HttpServlet {
           if (!fileSaveDir.exists()) {
               fileSaveDir.mkdir();
           }
+<<<<<<< HEAD
           boolean erro= false;
           String errorString = null;
+=======
+<<<<<<< HEAD
+          boolean erro= false;
+          String errorString = null;
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
           String filePath= "";
           String fileName="";
           try{
@@ -73,6 +90,10 @@ public class doAvatarServlet extends HttpServlet {
               }
           }}catch (Exception e) {
 	           e.printStackTrace();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 	           erro = true;
 	           errorString = "upload failed";
 	 	       System.out.println("File upload failed" + e );
@@ -105,6 +126,17 @@ public class doAvatarServlet extends HttpServlet {
 	        	  System.out.println(e);
 	          }	          
           }
+<<<<<<< HEAD
+=======
+=======
+	 	       System.out.println("File upload failed" + e );
+	       }
+          request.setAttribute("avatar_guid",SAVE_DIRECTORY+ File.separator + fileName );
+          System.out.println("File upload failed" +filePath );
+          RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/MyProfile.jsp");
+	       dispatcher.forward(request, response);
+>>>>>>> origin/master
+>>>>>>> origin/master
 	}
 	private String extractFileName(Part part) {
 	       // form-data; name="file"; filename="C:\file1.zip"

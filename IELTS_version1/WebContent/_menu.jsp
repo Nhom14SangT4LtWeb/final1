@@ -9,6 +9,11 @@
 			<li><a href="userHome">Home</a></li>
 			<li><a href="userInfo">My Profile</a></li>
 			<li><a href="doDanhMuc?danhmuc=${'Document'}">My File</a></li>
+<<<<<<< HEAD
+=======
+			<li><a href="userMail">My Box <span class="badge">0</span></a></li>
+			<li><a href="publicWebUser">Public File</a></li>
+>>>>>>> origin/master
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="userInfo"><span
