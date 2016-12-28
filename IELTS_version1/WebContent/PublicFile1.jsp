@@ -32,8 +32,6 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui-datepicker.min.js"></script>
 <link rel="stylesheet" href="css/ChatBox.css" media="screen">
-
-<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 </head>
 <body>
 	<div id="main">
@@ -49,18 +47,16 @@
 	  						<div class="input-group">
 	      						<input type="text" class="form-control" aria-label="..." style='width:300px'>
 						      	<div class="input-group-btn">
-						        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">.<span class="caret">.</span></button>
-						        <ul class="dropdown-menu dropdown-menu-right" style='width: 337px'>
-						          <li><a href="#">Tất cả mail</a></li>
-						          <li role="separator" class="divider"></li>
-						          <li><a href="#">Mail tin tức</a></li>
-						          <li role="separator" class="divider"></li>
-						          <li><a href="#">Mail tài liệu</a></li>
-						        </ul>
-						      	</div><!-- /btn-group -->
-	      						<span class="input-group-btn">
-	        						<button class="btn btn-default " type="button">.<span class="glyphicon glyphicon-search"></span></button>
-	      						</span>
+						        	<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></button>
+							        <ul class="dropdown-menu" style='width:40%'>
+							          <li><a href="#">Tất cả mail</a></li>
+							          <li role="separator" class="divider"></li>
+							          <li><a href="#">Mail tin tức</a></li>
+							          <li role="separator" class="divider"></li>
+							          <li><a href="#">Mail tài liệu</a></li>
+							        </ul>
+							    </div><!-- /btn-group -->
+	      						<button class="btn btn-default " type="button">.<span class="glyphicon glyphicon-search"></span></button>
 	    					</div>
 						</form>
 	  				</div>

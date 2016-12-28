@@ -9,9 +9,9 @@ public class MySQLConnUtils {
 	    
 	    // Chú ý: Thay đổi các thông số kết nối cho phù hợp.
 	    String hostName = "localhost";
-	    String dbName = "eilts";
+	    String dbName = "ielts";
 	    String userName = "root";
-	    String password = "mysql";
+	    String password = "12345678";
 	    return getMySQLConnection(hostName, dbName, userName, password);
 	}
 	 
@@ -19,17 +19,12 @@ public class MySQLConnUtils {
 	        String userName, String password) throws SQLException,
 	        ClassNotFoundException {
 	    // Khai báo class Driver cho DB MySQL
-	    // Việc này cần thiết với Java 5
-	    // Java6 trở lên tự động tìm kiếm Driver thích hợp.
-	    // Nếu bạn dùng Java > 5, thì ko cần dòng này cũng được.
 	    Class.forName("com.mysql.jdbc.Driver");
 	 
 	    // Cấu trúc URL Connection dành cho MySQL
-	    // Ví dụ: jdbc:mysql://localhost:3306/simplehr
-	    String connectionURL = "jdbc:mysql://localhost:3306/eilts?useUnicode=true&characterEncoding=UTF-8";
+	    String connectionURL = "jdbc:mysql://localhost:3306/ielts?useUnicode=true&characterEncoding=UTF-8";
 	 
-	    Connection conn = DriverManager.getConnection(connectionURL, userName,
-	            password);
+	    Connection conn = DriverManager.getConnection(connectionURL, userName, password);
 	    return conn;
 	}
 }

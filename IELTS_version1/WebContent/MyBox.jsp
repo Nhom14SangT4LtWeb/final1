@@ -48,27 +48,15 @@
 		<div class="row" style ='border: 1px solid #CDCDCD;width: 843px;min-height: 900px;   float:left;margin-left: 5px;margin-bottom: 5px;'>
 			<div class="navbar navbar-default">
 	  				<div class="container-fluid">
-	        			<button type="button" class="btn btn-default ">.<input type="checkbox" aria-label="..." ></button>
+	        			<form name="frmdanhmucmail" action="demo" method="POST" class="navbar-form navbar-left" style='width:60%'>
+	        			<button type="button" class="btn btn-default ">.<input type="checkbox" aria-label="..." /></button>
 	    				<button type="button" class="btn btn-default ">.<span class="glyphicon glyphicon-trash"></span></button>
-	    				<button type="button" class="btn btn-default navbar-btn" >.<span class="glyphicon glyphicon-repeat"></span></button>
-						<button type="button" class="btn btn-default navbar-btn" >.<span class="glyphicon glyphicon-arrow-left"></span></button>
-	    				<form class="navbar-form navbar-right" role="search">
-	  						<div class="input-group">
-	      						<input type="text" class="form-control" aria-label="..." style='width:300px'>
-						      	<div class="input-group-btn">
-						        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">.<span class="caret">.</span></button>
-						        <ul class="dropdown-menu dropdown-menu-right" style='width: 337px'>
-						          <li><a href="#">Tất cả mail</a></li>
-						          <li role="separator" class="divider"></li>
-						          <li><a href="#">Mail tin tức</a></li>
-						          <li role="separator" class="divider"></li>
-						          <li><a href="#">Mail tài liệu</a></li>
-						        </ul>
-						      	</div><!-- /btn-group -->
-	      						<span class="input-group-btn">
-	        						<button class="btn btn-default " type="button">.<span class="glyphicon glyphicon-search"></span></button>
-	      						</span>
-	    					</div>
+	    				<select id ="danhmuc" class="btn btn-default navbar-btn" style='width:40%'>
+				          <option>Tất cả mail</option>
+				          <option>Mail tin tức</option>
+				          <option>Mail tài liệu</option>
+				        </select>
+				        <button type="submit" class="btn btn-default navbar-btn" >GO</button>
 						</form>
 					</div>
 				</div>
@@ -261,9 +249,7 @@
 	</form>
 		</div>
 		<!-- PHAN FOOTER -->
-		<jsp:include page="_footer.jsp"></jsp:include>
+		<!--<jsp:include page="_footer.jsp"></jsp:include>-->
 		</div>
-		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-		<jsp:include page="_chatkythuat.jsp"></jsp:include>
 </body>
 </html>

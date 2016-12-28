@@ -76,11 +76,11 @@
 											<td><input type="checkbox" name="rememberMe" value="Y" /></td>
 										</tr>
 										<tr class="text-right">
-											<td colspan="2"><a href=""><input type="reset"
-													value="Reset" /></a> <a
-												href="${pageContext.request.contextPath}/"><input
-													type="button" value="Cancel" /></a> <a href=""><input
-													type="submit" value="Submit" /></a></td>
+											<td colspan="2">
+												<a href=""><input type="reset"	value="Reset"/></a> 
+												<a href="${pageContext.request.contextPath}/"><input type="button" value="Cancel" /></a>
+												<a href=""><input type="submit" value="Submit" /></a>
+											</td>
 										</tr>
 								</table>
 							</div>
@@ -125,7 +125,5 @@
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
-	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-	<jsp:include page="_chatkythuat.jsp"></jsp:include>
 </body>
 </html>

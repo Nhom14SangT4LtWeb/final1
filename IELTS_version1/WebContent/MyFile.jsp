@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -26,13 +27,14 @@
 <link href="css/ResetFormatPage.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="css/selector.css">
 <link href="css/reponsive.css" rel="stylesheet" type="text/css" />
-
 <!-- Thu vien calendar -->
+<link rel="stylesheet" href="css/ChatBox.css" media="screen">
 <link rel="stylesheet" href="css/Calendar_style.css" media="screen">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui-datepicker.min.js"></script>
-<link rel="stylesheet" href="css/ChatBox.css" media="screen">
-
+<!--  -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+<script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body>
 	<div id="main">
@@ -49,11 +51,15 @@
 			<!-- Navbar chính -->
 			<div class="navbar navbar-default">
   				<div class="container-fluid">
-    				<div class="navbar-header">
-        				<button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th"></span></button>
-        				<button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th-list"></span></button>
-    				</div>
-    				<form class="navbar-form navbar-right" role="search">
+				    <form id="frmdanhmuc" name="frmdanhmuc" action="doDanhMuc?selected" method="POST" class="navbar-form navbar-left" style='width:60%'>
+					    <button type="button" class="btn btn-default navbar-btn">.<span class="glyphicon glyphicon-th-list"></span></button>
+					    <select id ="danhmuc" name="danhmuc" onchange="document.frmdanhmuc.submit();" class="btn btn-default navbar-btn" style='width:40%;'>
+				          <option value="Document" selected>Document</option>
+				          <option value="Listening">Listening</option>
+				          <option value="Reading">Reading</option>
+				         </select>
+			        </form>
+				    <form class="navbar-form navbar-right" role="search" style='margin-top:2%'>
   						<div class="input-group">
       						<input type="text" class="form-control" placeholder="Search for...">
       						<span class="input-group-btn">
@@ -61,344 +67,56 @@
       						</span>
     					</div>
 					</form>
-					<form class="navbar-form navbar-right" role="input">
-						<div class="input-group">
-					      <input type="text" class="form-control" aria-label="..." style='width:300px'>
-					      <div class="input-group-btn">
-					        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">.<span class="caret">.</span></button>
-					        <ul class="dropdown-menu dropdown-menu-right" style='width: 337px'>
-					          <li><a href="#">Document</a></li>
-					          <li role="separator" class="divider"></li>
-					          <li><a href="#">Listening</a></li>
-					          <li role="separator" class="divider"></li>
-					          <li><a href="#">Reading</a></li>
-					          <li role="separator" class="divider"></li>
-					          <li><a href="#">Test</a></li>
-					          <li role="separator" class="divider"></li>
-					          <li><a href="#">Create test</a></li>
-					        </ul>
-					      </div><!-- /btn-group -->
-				    	</div><!-- /input-group -->
-				    </form>
-					<button type="button" class="btn btn-default navbar-btn" style='float:right'>.<span class="glyphicon glyphicon-repeat"></span></button>
-					<button type="button" class="btn btn-default navbar-btn" style='float:right'>.<span class="glyphicon glyphicon-arrow-left"></span></button>
   				</div>
 			</div>
+			
 			<!-- Navbar phụ -->
-			<div class="navbar navbar-default" style='margin-bottom: 0px;'>
-  				<div class="container-fluid">
-        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-share"></span>.Share</button>
-        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-download-alt"></span>.Download</button>
-        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-tasks"></span>.View Document</button>
-        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-copy"></span>.Copy</button>
-        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-scissors"></span>.Cut</button>
-        				<button type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-trash"></span>.Detelet</button>
-	    				<form class="navbar-form navbar-right" role="sort">
-							<div class="input-group">
-			    				<div class="input-group-btn">	
-							        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort by<span class="caret"></span></button>
-							        <ul class="dropdown-menu">
-							          <li><a href="#">Name</a></li>
-							          <li role="separator" class="divider"></li>
-							          <li><a href="#">Type</a></li>
-							        </ul>
-							  	</div>
-							</div>
-							<div class="input-group">
-								.<span class="input-group-addon" style='float:right'>
-									<input type="checkbox" aria-label="..." >
-								</span>
-						    </div>
-					     </form>
+			<div class="navbar navbar-default">
+ 				<div class="container-fluid">		
+       				<form class="navbar-form navbar-left" role="typeupload">
+       				<div class="input-group">	
+       					<div class="input-group-btn">	
+					        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Upload<span class="glyphicon glyphicon-upload"></span></button>
+					        <ul class="dropdown-menu">
+					          <li><a href="#" class="btnuploadFile">File</a></li>
+					          <li role="separator" class="divider"></li>
+					        </ul>
+					  	</div>
+					</div>
+					</form>
+					<form name="sortby" action="doDanhMuc?danhmuc=${danhmuchienhanh}" method="POST" class="navbar-form navbar-right" role="search" style='margin:0'>
+						<select id ="sort"  name="sort" onchange="document.sortby.submit();" class="btn btn-default navbar-btn">
+				          <option selected="selected" value="">-Sort by-</option>
+				          <option value="" >File</option>
+				        </select>
+			        </form>
+       				<button id ="viewdoc"name="viewdoc" type="button" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-tasks"></span> View Document</button>
     			</div>
 			</div>
 			<!--  -->
-			<form method="post" action="registration.jsp">
-		<div class="table-responsive">
+			<form method="post" action="">
+			<div class="table-responsive">
 			<table class="table table-hover" style="width: 100%">
 				<thead>
 					<tr>
-						<td>STT</td>
-						<td>Ten Tài Liệu</td>
-						<td>Tạo bởi</td>
-						<td>Ngày tạo</td>
-						<td >Thao tác</td>
-					</tr>
+						<td class="text-center" style='width:5%'>Loại</td>
+						<td class="text-center" >Ten Tài Liệu</td>
+						<td style='width:15%'>Ngày tạo</td>
+						<td class="text-center" style='width:10%'>Thao tác</td>
 				</thead>
 				<tbody>
+					<c:forEach items="${docList}" var="docs" >
 					<tr>
-						<td>1</td>
-						<td><a href="">Listening 1</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
+						<td class="text-center"><a class="glyphicon glyphicon-file"></a></td>
+						<td ><p name="doc_name" id="doc_name">${docs.doc_name}</p></td>
+						<td>${docs.upload_date}</td>
+						<td class="text-center">
+							<a name="doc_guid"href="doViewDoc?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-tasks"></a>
+							<a href="doDownloadFile?doc_guid=${docs.doc_guid}" class="glyphicon glyphicon-cloud-download"></a>
+							<a href="doDeleteFile?doc_id=${docs.doc_id}&doc_guid=${docs.doc_guid}&danhmuchienhanh=${danhmuchienhanh}" class="glyphicon glyphicon-trash"></a>
 						</td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td><a href="">Listening 2</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><a href="">Listening 3</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td><a href="">Listening 4</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td><a href="">Listening 5</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td><a href="">Listening 6</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td><a href="">Listening 7</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td><a href="">Listening 1</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><a href="">Listening 2</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><a href="">Listening 3</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td><a href="">Listening 4</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td><a href="">Listening 5</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td><a href="">Listening 6</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td><a href="">Listening 7</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td><a href="">Listening 1</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><a href="">Listening 2</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><a href="">Listening 3</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td><a href="">Listening 4</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td><a href="">Listening 5</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td><a href="">Listening 6</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td><a href="">Listening 7</a></td>
-						<td>kemotsach</td>
-						<td>15-08-2016</td>
-						<td> 
-							<a class="glyphicon glyphicon-save"></a>
-							<a class="glyphicon glyphicon-cloud-download"></a>
-							<span class="input-group" style='float:right; margin-right: 17px'>
-								<input type="checkbox" aria-label="..." style=''>
-							</span>
-						</td>
-					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
@@ -407,22 +125,91 @@
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
-		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-		<jsp:include page="_chatkythuat.jsp"></jsp:include>
+	<!-- HOP THOAI UPLOAD FILE -->
+	<div id="uploadFile" class="modalUpload">
+		<form id="uploadForm" action="${pageContext.request.contextPath}/doUploadFile" method="post" enctype="multipart/form-data">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<strong>Update File</strong>
+				</div>
+				<div class="btn panel-info  btn-block">
+					<strong><input type="file" size="60" id="file" name="file"></strong>
+					<hr>
+					<input name="danhmuchienhanh" value="${danhmuchienhanh}"/>
+					<input type="submit" class="btn btn-md btn-ok"  value="OK">
+					<input type="button" class="btn btn-md btn-cancel" value="Cancel"/>
+				</div>
+			</div>
+		</form>
+	</div>
+	  <!-- Modal -->
+ <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Share File</h4>
+            </div>
+            <div class="modal-body">
+				<form class="form-horizontal" role="form">
+				  <div class="form-group">
+				    <label for="inputNguoinhan3" class="col-sm-3 control-label">Người nhận</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="inputNguoinhan3" placeholder="">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputTailieu3" class="col-sm-3 control-label">Tài liệu:</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" name="tailieu3" value="${doc_name}"id="tailieu3" placeholder="">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label for="inputloinhan3" class="col-sm-3 control-label">Lời nhắn</label>
+				    <div class="col-sm-9">
+				      <textarea class="form-control" id="inputloinhan3" placeholder=""></textarea>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-5">
+				      <div class="checkbox">
+				        <label class="col-sm-9">
+				          <input type="checkbox"> Share cho publicFile
+				        </label>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  <button type="button" style="float:right; margin-right:3%" class="btn btn-primary">Send</button>
+				    <button type="button" style="float:right; margin-right:3%"class="btn btn-default" data-dismiss="modal">Close</button>
+                	
+				  </div>
+				</form>
+            </div>
+        </div>
+    </div>
+</div>
 		<!-- TRUYEN CALENDAR -->
+		<!-- hien thi hop thoai upload -->
 		<script>
-    	$('#calendar').datepicker({
-      	  	inline: true,
-        	firstDay: 1,
-        	showOtherMonths: true,
-        	dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-    	});
-	</script>
-		<!--  -->
+		    $(document).ready(function(){
+		        $(".btnuploadFile").click(function(){
+		            $("#uploadFile").show();
+		        })
+		    });
+		    $(document).ready(function(){
+		        $(".btn-cancel").click(function(){
+		            $("#uploadFile").hide();
+		        })
+		    });
+		</script>
 		<script>
-  		$( function() {
-    	$( document ).tooltip();
-  		} );
-  	</script>
+	  		$( function() {
+	    	$( document ).tooltip();
+	  		} );
+  		</script>
+<script>
+$('#danhmuc').val("${danhmuchienhanh}");
+</script>
 </body>
 </html>

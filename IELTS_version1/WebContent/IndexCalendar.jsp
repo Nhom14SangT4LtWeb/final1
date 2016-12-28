@@ -105,8 +105,6 @@
 		<!-- PHAN FOOTER -->
 		<jsp:include page="_footer.jsp"></jsp:include>
 		</div>
-		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-		<jsp:include page="_chatkythuat.jsp"></jsp:include>
 		<!-- TRUYEN CALENDAR -->
 		<script>
     	$('#calendar').datepicker({

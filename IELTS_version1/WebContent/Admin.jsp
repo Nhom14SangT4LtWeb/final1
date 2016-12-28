@@ -55,33 +55,14 @@
 							class="caret"></span>
 					</a>
 						<ul class=" navbar-inverse dropdown-menu">
-							<li><a href="#paper51" style='color: white'>User</a></li>
-							<li><a href="#paper52" style='color: white'>Admin</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="MyFile.jsp"> Kho tài liệu <span
-							class="caret"></span>
-					</a>
-						<ul class=" navbar-inverse dropdown-menu">
-							<li><a href="#paper51" style='color: white'>Đã lưu trữ</a></li>
-							<li><a href="#paper52" style='color: white'>Đang chờ phê
-									duyệt</a></li>
-						</ul></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="MyFile.jsp"> Mail <span
-							class="caret"></span>
-					</a>
-						<ul class=" navbar-inverse dropdown-menu">
-							<li><a href="#paper51" style='color: white'>Mail hệ
-									thống</a></li>
-							<li><a href="#paper52" style='color: white'>Mục chờ xử
-									lý</a></li>
+							<li><a href="listUser" style='color: white'>User</a></li>
+							<li><a href="listAdmin" style='color: white'>Admin</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="MyProfile.jsp"><span
+					<li><a><span
 							class="glyphicon glyphicon-user"></span>Admin</a></li>
-					<li><a href="WEB.jsp"><span
+					<li><a href="doLogout"><span
 							class="glyphicon glyphicon-log-in"></span>Log out</a></li>
 				</ul>
 			</div>
@@ -136,36 +117,6 @@
 							GROUP14_ST4_LTW_EGT Địa chỉ: 484 Lê Văn Việt,Q9,Tp.HCM. <br>
 						</strong>
 					</address>
-				</div>
-			</div>
-		</div>
-		<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-		<p>
-			<button class="btn btn-info fixChat">ĐỘI HỖ TRỢ KỸ THUẬT</button>
-		</p>
-		<div id="abc">
-			<div class="panel panel-info fixPa">
-				<div class="panel-heading">
-					<strong>ĐỘI HỖ TRỢ KỸ THUẬT CHÀO BẠN</strong>
-				</div>
-				<div class="panel-body">
-					<div class="row">
-						<span class="badge pull-left">
-							<h5>Chào bạn!</h5>
-						</span> <br> <br> <span class="badge">
-							<h5>Bạn đang gặp phải vấn đề gì?</h5>
-						</span>
-						<div class="input-group fixInp">
-							<input type="text" class="form-control"> <span
-								class="input-group-btn">
-								<button class="btn btn-default" type="button">Send!</button>
-								<button type="button" class="btn btn-default ">
-									<span class="glyphicon glyphicon-paperclip"></span>
-								</button>
-							</span>
-						</div>
-						<!-- /input-group -->
-					</div>
 				</div>
 			</div>
 		</div>

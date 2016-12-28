@@ -31,7 +31,10 @@
 <link rel="stylesheet" href="css/Calendar_style.css" media="screen">
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui-datepicker.min.js"></script>
-
+<script>
+ var erro = ${errorString};
+ if(erro !=null){alert('${errorString}');} 
+</script>
 </head>
 <body>
 	<div id="main">
@@ -49,7 +52,7 @@
 			<br>
 			<br>
 			<div class="col-md-4 col-sm-4 col-xs-12 text-center">
-				<img id="avatar" src="imgs/exo1.jpg" class="img-responsive"
+				<img id="avatar" src="${user.avatar}" class="img-responsive"
 					alt="exo1" width="304" height="236"> <br>
 				<button type="button" class="changeavatar">
 					<span class="glyphicon glyphicon-pencil" style="color: red"></span>
@@ -60,7 +63,7 @@
 				<table class="table table-hover" style="width: 100%">
 					<tr>
 						<td>Fullname:</td>
-						<td>Phạm Xuân Hoàng</td>
+						<td>${user.fullName}</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editfullname" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -76,7 +79,7 @@
 					</tr>
 					<tr>
 						<td>Username:</td>
-						<td>kemotsach</td>
+						<td>${user.userName}</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#edituser" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -92,7 +95,7 @@
 					</tr>
 					<tr>
 						<td>Telephone number:</td>
-						<td>0999999199919</td>
+						<td>${user.telephone}</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editphone" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -108,7 +111,7 @@
 					</tr>
 					<tr>
 						<td>Date of birth:</td>
-						<td>30/07/1996</td>
+						<td>${user.dateOfBirth}</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editbirth" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -124,7 +127,7 @@
 					</tr>
 					<tr>
 						<td>Nationaly:</td>
-						<td>Vietnamese</td>
+						<td>${user.nationaly}</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editnational" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -140,7 +143,7 @@
 					</tr>
 					<tr>
 						<td>Email:</td>
-						<td>qwerty@gmail.com</td>
+						<td>${user.email}</td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editemail" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -156,7 +159,7 @@
 					</tr>
 					<tr>
 						<td>Password:</td>
-						<td>************</td>
+						<td><input type="password" disabled="disabled" value='${user.password}'></td>
 						<td><a data-toggle="collapse" data-parent="#accordion"
 							href="#editpass" style="color: red"
 							class="glyphicon glyphicon-pencil"></a></td>
@@ -186,7 +189,7 @@
 						<li><a data-toggle="collapse" href="#calendar">CALENDAR......</a></li>
 						<li>
 							<label for="TaoTKB"></label>
-							<a href="userTimetable"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
+							<a href="Lich.jsp"><span class="glyphicon glyphicon-plus" id="TaoTKB"title="Tao thoi khoa bieu"></span></a>
 						</li>
 					</ul>
 					<div id="calendar" class="panel-collapse collapse"></div>
@@ -240,23 +243,23 @@
 		<jsp:include page="_footer.jsp"></jsp:include>
 	</div>
 	<!-- PHAN HOP THOAI CHANGE AVATAR -->
-	<div id="showmodalchangeavatar" class="opacityFull"></div>
-	<div id="opacityFullPage" class="modalChangeAvatar">
+	<div id="opacityFullPage" class="opacityFull"></div>
+	<div id="showmodalchangeavatar" class="modalUpload">
+	<form name="avatar" action="${pageContext.request.contextPath}/doAvatar" method="POST" enctype="multipart/form-data">
 		<div class="panel panel-info">
-			<div class="panel-heading">
-				<strong>Update Avatar</strong>
+				<div class="panel-heading">
+					<strong>Change Avatar</strong>
+				</div>
+				<div class="btn panel-info  btn-block">
+					<strong><input type="file" size="60" id="file" name="file"></strong>
+					<hr>
+					<input type="submit" class="btn btn-md btn-ok"  value="OK">
+					<input type="button" class="btn btn-md btn-cancel cancelAvatar" value="Cancel"/>
+				</div>
 			</div>
-			<div class="btn panel-info  btn-block btn-file">
-				<strong><input type="file" class=""></strong>
-				<hr>
-				<a href="ChangeAvatar.jsp"><input type="button"
-					class="btn btn-md btn-ok " value="OK"></a> <input type="button"
-					class="btn btn-md btn-cancel cancelAvatar" value="Cancel">
-			</div>
-		</div>
+	</form>
 	</div>
-	<!-- PHAN TAO BUTTON CHAT VOI DOI HO TRO KY THUAT -->
-	<jsp:include page="_chatkythuat.jsp"></jsp:include>
+	<!-- hien thi hop thoai doi avatar -->
 	<script>
     $(document).ready(function(){
         $(".changeavatar").click(function(){

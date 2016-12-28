@@ -8,9 +8,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="userHome">Home</a></li>
 			<li><a href="userInfo">My Profile</a></li>
-			<li><a href="userMyFile">My File</a></li>
-			<li><a href="userMail">My Box <span class="badge">0</span></a></li>
-			<li><a href="publicWebUser">Public File</a></li>
+			<li><a href="doDanhMuc?danhmuc=${'Document'}">My File</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="userInfo"><span

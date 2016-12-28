@@ -2,7 +2,9 @@ package org.o7planning.simplewebapp.servlet;
 
 
 import java.io.IOException;
- 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
  
 import UserAccount.TaiKhoaNguoiDung;
+
+import org.o7planning.simplewebapp.utils.DBUtils;
 import org.o7planning.simplewebapp.utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/userInfo" })
@@ -37,11 +41,14 @@ public class UserInfoServlet extends HttpServlet {
           return;
       }
       // Ghi thông tin vào request trước khi forward.
-      request.setAttribute("user", loginedUser);
- 
+      Connection conn = MyUtils.getStoredConnection(request);
+      try {
+      TaiKhoaNguoiDung user = DBUtils.findUser(conn, loginedUser.getUserName());
+      request.setAttribute("user", user);
       // Đã login rồi thì chuyển tiếp sang /WEB-INF/views/userInfoView.jsp
       RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/MyProfile.jsp");
       dispatcher.forward(request, response);
+      } catch (SQLException e){}
  
   }
  
